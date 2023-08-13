@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "581781941834",
+    "project_id": "polluted-games",
+    "storage_bucket": "polluted-games.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581781941834:android:cda4d66259179ebda3c0b3",
+        "android_client_info": {
+          "package_name": "com.firebase.pollutedgames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581781941834-sum4hdgoi6cv7fg9kqc4pgg7dsonuoqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSyWBPYQljmaw7Vch9496bf3uHCugSpcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581781941834-sum4hdgoi6cv7fg9kqc4pgg7dsonuoqi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "581781941834-q03lv2e0u479mn1g0qbtndrf1u4ia93q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.firebase.pollutedgames"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
