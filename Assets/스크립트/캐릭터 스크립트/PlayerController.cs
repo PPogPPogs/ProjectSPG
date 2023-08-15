@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool isAttacking = false;
     public AudioClip attackClip;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 5f;
     public LayerMask enemyLayers;
 
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
-
+        enemyLayers = LayerMask.GetMask("Enemy");
         characterHealth = GetComponent<CharacterHealth>(); // CharacterHealth 스크립트 할당
     }
 
@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Attack");
         playerAudio.PlayOneShot(attackClip);
         nextAttackTime = Time.time + attackCooldown;
+        DealDamage();
     }
 
     private void Move(float horizontalInput)
@@ -115,6 +116,8 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsGrounded", isGrounded);
     }
 
+
+
     private void Die()
     {
         Debug.Log("Die animation triggered!");
@@ -122,7 +125,6 @@ public class PlayerController : MonoBehaviour
     }
     public void DealDamage()
     {
-        // 데미지를 입히는 로직 (예시)
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -133,5 +135,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
 }

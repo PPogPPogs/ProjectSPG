@@ -35,31 +35,37 @@ public class MonsterPortal : MonoBehaviour
             {
                 if (!isBossSpawned)
                 {
-                    if (!isIntermediateSpawned && intermediateMonstersKilled >= 50)
+                    if (!isIntermediateSpawned && normalMonstersKilled >= 5  )
+                    {
+                        SpawnIntermediateMonster();
+                    
+                        isIntermediateSpawned = true;
+                    }
+                    else if (isIntermediateSpawned && normalMonstersKilled <= 10 && Time.time >= nextMonsterSpawnTime)
                     {
                         SpawnIntermediateMonster();
                         isIntermediateSpawned = true;
+                        nextMonsterSpawnTime = Time.time + GetRandomSpawnTime();
+
                     }
-                    else if (!isIntermediateSpawned)
+                    else if (isIntermediateSpawned && normalMonstersKilled >= 11)
                     {
-                        if (Time.time >= nextMonsterSpawnTime)
-                        {
-                            SpawnMonster();
-                            nextMonsterSpawnTime = Time.time + GetRandomSpawnTime();
-                        }
+                        SpawnBossMonster();
+                        isBossSpawned = true;
                     }
-                    else
+                    else if (!isIntermediateSpawned && Time.time >= nextMonsterSpawnTime)
                     {
-                        if (normalMonstersKilled >= 50)
-                        {
-                            SpawnBossMonster();
-                            isBossSpawned = true;
-                        }
+                        SpawnMonster();
+                        nextMonsterSpawnTime = Time.time + GetRandomSpawnTime();
                     }
                 }
             }
+
         }
     }
+            
+        
+    
 
     private float GetRandomSpawnTime()
     {
@@ -84,16 +90,17 @@ public class MonsterPortal : MonoBehaviour
     public void MonsterKilled()
     {
         normalMonstersKilled++;
+        
 
         // 죽인 몬스터 수에 따라 중간 몬스터 생성 여부 확인
-        if (!isIntermediateSpawned && normalMonstersKilled >= 50)
+        if (!isIntermediateSpawned && normalMonstersKilled >= 5)
         {
             SpawnIntermediateMonster();
             isIntermediateSpawned = true;
         }
 
         // 죽인 몬스터 수에 따라 보스 몬스터 생성 여부 확인
-        if (!isBossSpawned && intermediateMonstersKilled >= 50)
+        if (!isBossSpawned && intermediateMonstersKilled >= 5)
         {
             SpawnBossMonster();
             isBossSpawned = true;

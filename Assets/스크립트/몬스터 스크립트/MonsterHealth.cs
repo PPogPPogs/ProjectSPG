@@ -1,50 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterHealth : MonoBehaviour
+public class MonsterHealth: MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
+    public Slider healthSlider; // UI Slider 요소를 연결
+  
 
-    public Slider healthSlider; // 몬스터 체력을 표시하는 UI 요소
-    public Vector3 healthBarOffset = new Vector3(0f, 1.5f, 0f); // 체력바 위치 조절 오프셋
-
-    private void Awake()
+    private void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthBar(); // 시작할 때 체력바 및 텍스트 업데이트
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damageAmount;
-        UpdateHealthBar();
-
+        currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            
+            UpdateHealthBar();
+            Debug.Log("체력이 감소했습니다");// 체력이 감소할 때마다 체력바 및 텍스트 업데이트
         }
     }
 
     private void Die()
     {
+        MonsterPortal monsterPortal = FindObjectOfType<MonsterPortal>();
+        if (monsterPortal != null)
+        {
+            monsterPortal.MonsterKilled();
+        }
         Destroy(gameObject);
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
-        float healthPercentage = (float)currentHealth / maxHealth;
-        healthSlider.value = healthPercentage;
-    }
-
-    private void LateUpdate()
-    {
-        UpdateHealthBarPosition();
-    }
-
-    private void UpdateHealthBarPosition()
-    {
-        Vector3 healthBarPosition = transform.position + healthBarOffset;
-        healthSlider.transform.position = healthBarPosition;
+        healthSlider.value = (float)currentHealth / maxHealth;
+        // 체력바 업데이트
+        
     }
 }
-
