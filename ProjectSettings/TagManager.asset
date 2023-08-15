@@ -49,12 +49,12 @@ TagManager:
   - name: middleground
     uniqueID: 3173405269
     locked: 0
-  - name: foreground
-    uniqueID: 3788689909
-    locked: 0
   - name: Monster
     uniqueID: 2423489087
     locked: 0
   - name: Character
     uniqueID: 2096421113
+    locked: 0
+  - name: foreground
+    uniqueID: 3788689909
     locked: 0
