@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62070bd11dccb034d8487fead77a9b5a
+guid: 955ab864e2006a344a9ea5c05d88b60d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,32 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime2_jump_0
+      name: slime2_jump 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db87ac4ba196140438a448a57c1166e9
-      internalID: 1868775443
+      spriteID: 88fd5405b9167dd4d8c50fbc2dd85f92
+      internalID: -1192982080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_1
+      name: slime2_jump 1_1
       rect:
         serializedVersion: 2
         x: 52
@@ -171,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 178ee8f31db47284b9175908fc2ba2fe
-      internalID: -1715358348
+      spriteID: 10be28b1644d63c41a88df94a6bb4083
+      internalID: -361282564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_2
+      name: slime2_jump 1_2
       rect:
         serializedVersion: 2
         x: 104
@@ -192,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed864e810e267b4e8f9c30432021975
-      internalID: 1518015836
+      spriteID: 67e24e99961919947b1541f42d27746f
+      internalID: 1136920894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_3
+      name: slime2_jump 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -213,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27eff86fa642c784abdc0c65820184de
-      internalID: -1012669958
+      spriteID: 267a74c162611614db2ed4e48b2bb2cb
+      internalID: -475857563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_4
+      name: slime2_jump 1_4
       rect:
         serializedVersion: 2
         x: 52
@@ -234,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46f3e9cf6fbf0b043a94f574ddf07c0a
-      internalID: 1762775384
+      spriteID: 8d71c8e75aea7bd408ef04ba5f7f3e2d
+      internalID: 312125456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_5
+      name: slime2_jump 1_5
       rect:
         serializedVersion: 2
         x: 104
@@ -255,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f619ba37209afc4a984c22d29f5914e
-      internalID: 1327316476
+      spriteID: 9a0d7e950229ab94daa000b8ba80ca14
+      internalID: 572523847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_6
+      name: slime2_jump 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -276,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c32330d93b9e8ba4085243a2ffc40e41
-      internalID: 41162856
+      spriteID: cbcb36990709fa24f9903b58e319f073
+      internalID: -586063479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_7
+      name: slime2_jump 1_7
       rect:
         serializedVersion: 2
         x: 52
@@ -297,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfe6c6d728dcab047971b4069f2a8735
-      internalID: -1067440239
+      spriteID: 33fa9c67974324a419cdce50c3c7db5b
+      internalID: -1015733529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: slime2_jump_8
+      name: slime2_jump 1_8
       rect:
         serializedVersion: 2
         x: 104
@@ -318,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 714951b42cd8ba84eaed3358075aea48
-      internalID: -495929905
+      spriteID: c7709b4119c3ad54db30ada8e79fbf04
+      internalID: 1387317578
       vertices: []
       indices: 
       edges: []
@@ -335,15 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      slime2_jump_0: 1868775443
-      slime2_jump_1: -1715358348
-      slime2_jump_2: 1518015836
-      slime2_jump_3: -1012669958
-      slime2_jump_4: 1762775384
-      slime2_jump_5: 1327316476
-      slime2_jump_6: 41162856
-      slime2_jump_7: -1067440239
-      slime2_jump_8: -495929905
+      slime2_jump 1_0: -1192982080
+      slime2_jump 1_1: -361282564
+      slime2_jump 1_2: 1136920894
+      slime2_jump 1_3: -475857563
+      slime2_jump 1_4: 312125456
+      slime2_jump 1_5: 572523847
+      slime2_jump 1_6: -586063479
+      slime2_jump 1_7: -1015733529
+      slime2_jump 1_8: 1387317578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
