@@ -13,32 +13,38 @@ public class MonsterPortal : MonoBehaviour
     private int intermediateMonstersKilled = 0; // 죽인 중간 몬스터 수
     private bool isIntermediateSpawned = false; // 중간 몬스터가 이미 생성되었는지 여부
     private bool isBossSpawned = false; // 보스 몬스터가 이미 생성되었는지 여부
+    private Animator portalAnimator;
 
     private float nextMonsterSpawnTime; // 다음 몬스터 생성 시간
     public float minSpawnInterval = 2.0f; // 최소 생성 간격 (초)
     public float maxSpawnInterval = 5.0f; // 최대 생성 간격 (초)
+    private bool isPortalOpen = false;
+
+    private float portalUpdateInterval = 1.0f; // 포털 업데이트 간격 (초)
+    private float timeSinceLastPortalUpdate = 0.0f;
 
     private void Start()
     {
         nextMonsterSpawnTime = GetRandomSpawnTime();
+        portalAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        UpdatePortalStatus();
+
         CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
-        if (calendarManager != null)
+        if (calendarManager != null && isPortalOpen)
         {
             int currentHour = calendarManager.GetHour();
             int currentDay = calendarManager.GetDay();
-
-            if (currentDay % 2 == 0 && currentHour >= 1)
+            if (currentDay % 2 == 0)
             {
                 if (!isBossSpawned)
                 {
-                    if (!isIntermediateSpawned && normalMonstersKilled >= 5  )
+                    if (!isIntermediateSpawned && normalMonstersKilled >= 5)
                     {
                         SpawnIntermediateMonster();
-                    
                         isIntermediateSpawned = true;
                     }
                     else if (isIntermediateSpawned && normalMonstersKilled <= 10 && Time.time >= nextMonsterSpawnTime)
@@ -46,7 +52,6 @@ public class MonsterPortal : MonoBehaviour
                         SpawnIntermediateMonster();
                         isIntermediateSpawned = true;
                         nextMonsterSpawnTime = Time.time + GetRandomSpawnTime();
-
                     }
                     else if (isIntermediateSpawned && normalMonstersKilled >= 11)
                     {
@@ -59,13 +64,42 @@ public class MonsterPortal : MonoBehaviour
                         nextMonsterSpawnTime = Time.time + GetRandomSpawnTime();
                     }
                 }
+                portalAnimator.SetBool("IsOpen", true);
             }
 
+            else
+            {
+                // 애니메이션 재생: 포털 닫힘
+                portalAnimator.SetBool("IsOpen", false);
+            }
+        }
+    } 
+
+    private void UpdatePortalStatus()
+    {
+        timeSinceLastPortalUpdate += Time.deltaTime;
+
+        if (timeSinceLastPortalUpdate >= portalUpdateInterval)
+        {
+            CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
+            if (calendarManager != null)
+            {
+                int currentHour = calendarManager.GetHour();
+                int currentDay = calendarManager.GetDay();
+
+                if (currentHour >= 1)
+                {
+                    isPortalOpen = true;
+                }
+                else
+                {
+                    isPortalOpen = false; // 3시 이전에는 포탈 닫기
+                }
+            }
+
+            timeSinceLastPortalUpdate = 0.0f; // 간격 초기화
         }
     }
-            
-        
-    
 
     private float GetRandomSpawnTime()
     {
@@ -90,16 +124,13 @@ public class MonsterPortal : MonoBehaviour
     public void MonsterKilled()
     {
         normalMonstersKilled++;
-        
 
-        // 죽인 몬스터 수에 따라 중간 몬스터 생성 여부 확인
         if (!isIntermediateSpawned && normalMonstersKilled >= 5)
         {
             SpawnIntermediateMonster();
             isIntermediateSpawned = true;
         }
 
-        // 죽인 몬스터 수에 따라 보스 몬스터 생성 여부 확인
         if (!isBossSpawned && intermediateMonstersKilled >= 5)
         {
             SpawnBossMonster();
