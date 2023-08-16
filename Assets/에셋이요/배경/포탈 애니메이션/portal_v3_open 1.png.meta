@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 074892b7dad2bb441992e66ce854798d
+guid: f6832fb19615e2b45afd96d1576cdf8f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: portal_v3_open_0
+      name: portal_v3_open 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
-        width: 800
-        height: 120
+        y: 45
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac99b127549c0748a04dde5cf2a8fad
-      internalID: -1162294792
+      spriteID: d1a6a411047397743a874f5ffc0e738a
+      internalID: -496121023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: portal_v3_open_1
+      name: portal_v3_open 1_1
       rect:
         serializedVersion: 2
-        x: 800
-        y: 120
-        width: 800
-        height: 120
+        x: 45
+        y: 45
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7573374bc9a9b04296c75e330d5219a
-      internalID: 255747996
+      spriteID: e1e9c74c107522a48a63fef6cbf1a5e2
+      internalID: 343413099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: portal_v3_open_2
+      name: portal_v3_open 1_2
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 120
-        width: 800
-        height: 120
+        x: 90
+        y: 45
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a11c3503735f54a822fbbae5085bac
-      internalID: -35093490
+      spriteID: ffbca38ddf4b55e41ac35efdebd379ad
+      internalID: -1559863915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: portal_v3_open_3
+      name: portal_v3_open 1_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 800
-        height: 120
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7adf4142dbd06d5489e4e62997a748be
-      internalID: 428518503
+      spriteID: 429e7e04441cfdb4fb10bae602af1f39
+      internalID: -793813629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: portal_v3_open_4
+      name: portal_v3_open 1_4
       rect:
         serializedVersion: 2
-        x: 800
+        x: 45
         y: 0
-        width: 800
-        height: 120
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +208,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 515c54b8b80db1a42b6187f9e21a79ef
-      internalID: -383249586
+      spriteID: 2550989c12f6b0a4687cc2038fb25cb8
+      internalID: 1903476877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: portal_v3_open 1_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d505bb77fb97da842868c462646533c1
+      internalID: 1593723290
       vertices: []
       indices: 
       edges: []
@@ -225,11 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      portal_v3_open_0: -1162294792
-      portal_v3_open_1: 255747996
-      portal_v3_open_2: -35093490
-      portal_v3_open_3: 428518503
-      portal_v3_open_4: -383249586
+      portal_v3_open 1_0: -496121023
+      portal_v3_open 1_1: 343413099
+      portal_v3_open 1_2: -1559863915
+      portal_v3_open 1_3: -793813629
+      portal_v3_open 1_4: 1903476877
+      portal_v3_open 1_5: 1593723290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
