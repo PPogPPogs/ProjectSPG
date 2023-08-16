@@ -197,9 +197,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 468597381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 103.805176, y: -20}
+  m_AnchorMin: {x: 0.68, y: 0.75000006}
+  m_AnchorMax: {x: 0.68, y: 0.75000006}
+  m_AnchoredPosition: {x: 85.805176, y: 5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &163444211
@@ -573,9 +573,9 @@ RectTransform:
   - {fileID: 14041190}
   m_Father: {fileID: 1151227980033503617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.305176, y: 153.71242}
+  m_AnchorMin: {x: 0.449875, y: 0.8816614}
+  m_AnchorMax: {x: 0.449875, y: 0.8816614}
+  m_AnchoredPosition: {x: -2.3051758, y: -5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &468597382
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 3734546196019877515, guid: 175bfc335208c7242bfbd70c21b2e753, type: 3}
   intermediateMonsterPrefab: {fileID: 6274976155787857743, guid: b72b592bdfc9c394298f3420ffbe4877, type: 3}
-  bossMonsterPrefab: {fileID: 7426138568456366612, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
+  bossMonsterPrefab: {fileID: 556006546217553924, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
   spawnPoint: {fileID: 2017102566}
   minSpawnInterval: 1
   maxSpawnInterval: 2
@@ -1093,9 +1093,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 468597381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85.8, y: 31.8}
+  m_AnchorMin: {x: 0.58000004, y: 0.94000006}
+  m_AnchorMax: {x: 0.58000004, y: 0.94000006}
+  m_AnchoredPosition: {x: 77.8, y: -12.200001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873305760
@@ -1338,9 +1338,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 468597381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.7, y: 30.6}
+  m_AnchorMin: {x: 0.28, y: 0.94000006}
+  m_AnchorMax: {x: 0.28, y: 0.94000006}
+  m_AnchoredPosition: {x: 74.7, y: -13.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952653182
@@ -2402,9 +2402,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 468597381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 70.70517, y: -20}
+  m_AnchorMin: {x: 0.32000002, y: 0.75000006}
+  m_AnchorMax: {x: 0.32000002, y: 0.75000006}
+  m_AnchoredPosition: {x: 88.70517, y: 5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1756751785

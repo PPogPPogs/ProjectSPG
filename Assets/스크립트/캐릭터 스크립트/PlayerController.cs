@@ -133,6 +133,11 @@ public class PlayerController : MonoBehaviour
             {
                 monsterHealth.TakeDamage(50); // 10은 데미지량으로 조절 가능
             }
+            BossMonsterHealth BossmonsterHealth = enemy.GetComponent<BossMonsterHealth>();
+            if (BossmonsterHealth != null)
+            {
+                BossmonsterHealth.TakeDamage(10); // 10은 데미지량으로 조절 가능
+            }
         }
     }
 }
