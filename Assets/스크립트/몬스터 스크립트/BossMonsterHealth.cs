@@ -34,6 +34,7 @@ public class BossMonsterHealth : MonoBehaviour
         if (monsterPortal != null)
         {
             monsterPortal.MonsterKilled();
+            monsterPortal.ClosePortal();
         }
         Destroy(gameObject);
     }

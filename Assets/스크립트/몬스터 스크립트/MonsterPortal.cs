@@ -14,6 +14,7 @@ public class MonsterPortal : MonoBehaviour
     private bool isIntermediateSpawned = false; // 중간 몬스터가 이미 생성되었는지 여부
     private bool isBossSpawned = false; // 보스 몬스터가 이미 생성되었는지 여부
     private Animator portalAnimator;
+    private bool isBossDie = false;
 
     private float nextMonsterSpawnTime; // 다음 몬스터 생성 시간
     public float minSpawnInterval = 2.0f; // 최소 생성 간격 (초)
@@ -65,6 +66,13 @@ public class MonsterPortal : MonoBehaviour
                     }
                 }
                 portalAnimator.SetBool("IsOpen", true);
+                if (isBossSpawned)
+                {
+                    if (isBossDie == true)
+                    {
+                        portalAnimator.SetBool("IsOpen", false);
+                    }
+                }
             }
 
             else
@@ -120,6 +128,13 @@ public class MonsterPortal : MonoBehaviour
     {
         Instantiate(bossMonsterPrefab, spawnPoint.position, spawnPoint.rotation);
     }
+
+    public void ClosePortal()
+    {
+            isBossDie = true;
+            Update();
+    } 
+
 
     public void MonsterKilled()
     {
