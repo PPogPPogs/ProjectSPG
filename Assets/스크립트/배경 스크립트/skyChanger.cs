@@ -4,6 +4,8 @@ public class skyChanger : MonoBehaviour
 {
 	public SpriteRenderer spriteRenderer; // 스프라이트 렌더러 컴포넌트
 	public float fadeDuration = 1.0f; // fade out/in 지속 시간 (초)
+	public float fadeOutStartTime = 0.0f; // fade out 시작 시간
+	public float fadeInStartTime = 12.0f; // fade in 시작 시간
 
 	private bool fadingOut = false;
 	private bool fadingIn = false;
@@ -25,7 +27,7 @@ public class skyChanger : MonoBehaviour
 		{
 			int currentHour = calendarManager.GetHour();
 
-			if (currentHour >= 0 && currentHour < 12 && !fadingOut)
+			if (currentHour >= fadeOutStartTime && currentHour < fadeInStartTime && !fadingOut)
 			{
 				Debug.Log("아침이 되었습니다.");
 
@@ -33,7 +35,7 @@ public class skyChanger : MonoBehaviour
 				fadingOut = true;
 				StartCoroutine(FadeOutSprite());
 			}
-			else if (currentHour >= 12 && !fadingIn)
+			else if (currentHour >= fadeInStartTime && !fadingIn)
 			{
 				Debug.Log("밤이 되었습니다.");
 
