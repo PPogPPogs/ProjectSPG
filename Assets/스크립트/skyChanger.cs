@@ -27,13 +27,16 @@ public class skyChanger : MonoBehaviour
 
 			if (currentHour >= 0 && currentHour < 12 && !fadingOut)
 			{
+				Debug.Log("아침이 되었습니다.");
+
 				fadingIn = false;
 				fadingOut = true;
 				StartCoroutine(FadeOutSprite());
 			}
 			else if (currentHour >= 12 && !fadingIn)
 			{
-				Debug.Log("뽕뽕쓰라던지");
+				Debug.Log("밤이 되었습니다.");
+
 				fadingOut = false;
 				fadingIn = true;
 				StartCoroutine(FadeInSprite());
