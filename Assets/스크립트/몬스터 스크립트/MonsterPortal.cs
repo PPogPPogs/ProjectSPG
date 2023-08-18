@@ -15,14 +15,18 @@ public class MonsterPortal : MonoBehaviour
     private bool isBossSpawned = false; // 보스 몬스터가 이미 생성되었는지 여부
     private Animator portalAnimator;
     private bool isBossDie = false;
+    private int isPlayEnterValue;
+
 
     private float nextMonsterSpawnTime; // 다음 몬스터 생성 시간
     public float minSpawnInterval = 2.0f; // 최소 생성 간격 (초)
     public float maxSpawnInterval = 5.0f; // 최대 생성 간격 (초)
     private bool isPortalOpen = false;
+    public string dungeonSceneName;
 
     private float portalUpdateInterval = 1.0f; // 포털 업데이트 간격 (초)
     private float timeSinceLastPortalUpdate = 0.0f;
+
 
     private void Start()
     {
@@ -33,13 +37,14 @@ public class MonsterPortal : MonoBehaviour
     private void Update()
     {
         UpdatePortalStatus();
+        int isPlayEnterValue = PlayerPrefs.GetInt("IsPlayEnter", 0);
 
         CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
         if (calendarManager != null && isPortalOpen)
         {
             int currentHour = calendarManager.GetHour();
             int currentDay = calendarManager.GetDay();
-            if (currentDay % 2 == 0)
+            if (currentDay % 2 == 0 && currentHour >= 1)
             {
                 if (!isBossSpawned)
                 {
@@ -66,6 +71,9 @@ public class MonsterPortal : MonoBehaviour
                     }
                 }
                 portalAnimator.SetBool("IsOpen", true);
+                PlayerPrefs.SetInt("IsPlayEnter", 0);
+                PlayerPrefs.Save(); // 변경사항 저장
+
                 if (isBossSpawned)
                 {
                     if (isBossDie == true)
@@ -75,10 +83,11 @@ public class MonsterPortal : MonoBehaviour
                 }
             }
 
-            else
+            else if (currentDay % 2 == 1 && currentHour >= 1 && isPlayEnterValue == 0 )
             {
-                // 애니메이션 재생: 포털 닫힘
-                portalAnimator.SetBool("IsOpen", false);
+                
+                portalAnimator.SetBool("IsOpen", true);
+               
             }
         }
     } 
@@ -106,6 +115,19 @@ public class MonsterPortal : MonoBehaviour
             }
 
             timeSinceLastPortalUpdate = 0.0f; // 간격 초기화
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // 던전(던전씬)으로 이동
+            UnityEngine.SceneManagement.SceneManager.LoadScene(dungeonSceneName);
+            PlayerPrefs.SetInt("IsPlayEnter", 1);
+            PlayerPrefs.Save(); // 변경사항 저장
+
+
         }
     }
 

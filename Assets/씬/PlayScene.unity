@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 112280806}
   - component: {fileID: 112280807}
   m_Layer: 0
-  m_Name: tree1
+  m_Name: tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,6 +1601,7 @@ GameObject:
   - component: {fileID: 763050926}
   - component: {fileID: 763050925}
   - component: {fileID: 763050924}
+  - component: {fileID: 763050927}
   m_Layer: 0
   m_Name: "\uD3EC\uD0C8"
   m_TagString: Untagged
@@ -1639,8 +1640,9 @@ MonoBehaviour:
   intermediateMonsterPrefab: {fileID: 6274976155787857743, guid: b72b592bdfc9c394298f3420ffbe4877, type: 3}
   bossMonsterPrefab: {fileID: 556006546217553924, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
   spawnPoint: {fileID: 2017102566}
-  minSpawnInterval: 5
-  maxSpawnInterval: 10
+  minSpawnInterval: 2
+  maxSpawnInterval: 5
+  dungeonSceneName: DungeonScene1
 --- !u!95 &763050925
 Animator:
   serializedVersion: 5
@@ -1714,6 +1716,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &763050927
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763050922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0015339032, y: -0.043899864}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.45, y: 0.45}
+    newSize: {x: 0.45, y: 0.45}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.41011685, y: 0.36220026}
+  m_EdgeRadius: 0
 --- !u!1 &818869953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,8 +3024,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188329763}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.750755, y: 273.10464, z: -3.2255547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -104.75076, y: 273.10464, z: -3.225555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3210,8 +3257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 186.15181, y: 934.5919}
-  m_SizeDelta: {x: 764, y: 488}
+  m_AnchoredPosition: {x: 193.58382, y: 907.9507}
+  m_SizeDelta: {x: 793.993, y: 473.979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1335285519
 MonoBehaviour:
@@ -3408,11 +3455,11 @@ Transform:
   - {fileID: 1452854800}
   - {fileID: 2017102566}
   - {fileID: 118049861}
+  - {fileID: 1884306293}
+  - {fileID: 112280806}
   - {fileID: 325950172}
   - {fileID: 1498573666}
-  - {fileID: 112280806}
   - {fileID: 1359256301}
-  - {fileID: 1884306293}
   - {fileID: 1001197603}
   - {fileID: 460189018}
   - {fileID: 231595896}
@@ -3436,7 +3483,7 @@ GameObject:
   - component: {fileID: 1359256301}
   - component: {fileID: 1359256302}
   m_Layer: 0
-  m_Name: tree1 (2)
+  m_Name: tree5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3688,7 +3735,7 @@ GameObject:
   - component: {fileID: 1498573666}
   - component: {fileID: 1498573667}
   m_Layer: 0
-  m_Name: tree2
+  m_Name: tree4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4390,7 +4437,7 @@ GameObject:
   - component: {fileID: 1884306293}
   - component: {fileID: 1884306294}
   m_Layer: 0
-  m_Name: tree1 (1)
+  m_Name: tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4990,7 +5037,7 @@ MonoBehaviour:
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1 &1403048311770240067
 GameObject:
   m_ObjectHideFlags: 0
