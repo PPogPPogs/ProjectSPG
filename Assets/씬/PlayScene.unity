@@ -1640,8 +1640,8 @@ MonoBehaviour:
   intermediateMonsterPrefab: {fileID: 6274976155787857743, guid: b72b592bdfc9c394298f3420ffbe4877, type: 3}
   bossMonsterPrefab: {fileID: 556006546217553924, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
   spawnPoint: {fileID: 2017102566}
-  minSpawnInterval: 2
-  maxSpawnInterval: 5
+  minSpawnInterval: 5
+  maxSpawnInterval: 15
   dungeonSceneName: DungeonScene1
 --- !u!95 &763050925
 Animator:
