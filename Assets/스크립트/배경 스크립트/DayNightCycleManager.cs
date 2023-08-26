@@ -1,31 +1,56 @@
 using UnityEngine;
 
-public class DayNightCycleManager : MonoBehaviour
+public class TimeBasedFade : MonoBehaviour
 {
-	public float startX = -5.0f; // 시작 x 좌표
-	public float endX = 5.0f;    // 종료 x 좌표
-	public float duration = 12.0f; // 이동에 걸리는 시간 (12시간)
+	public SpriteRenderer backgroundImageRenderer; // 배경 이미지의 SpriteRenderer 컴포넌트
+	public Sprite targetSprite;    // 변경할 스프라이트
+	public float fadeDuration = 1.0f; // 페이드 효과 지속 시간
 
-	private Vector3 startPosition;
-	private Vector3 endPosition;
+	private float fadeStartTime; // 페이드 시작 시간
+	private bool isFading = false; // 페이드 중 여부
 
-	private CalendarManager calendarManager; // CalendarManager 컴포넌트 참조
+	private Color initialColor; // 초기 색상
 
 	private void Start()
 	{
-		startPosition = new Vector3(startX, 0, 0);
-		endPosition = new Vector3(endX, 0, 0);
-
-		// CalendarManager 컴포넌트 참조
-		calendarManager = GetComponent<CalendarManager>();
+		initialColor = backgroundImageRenderer.color; // 초기 색상 저장
 	}
 
 	private void Update()
 	{
-		if (calendarManager != null)
+		if (isFading)
 		{
-			float progress = Mathf.Clamp01(calendarManager.GetHour() / 12.0f);
-			transform.position = Vector3.Lerp(startPosition, endPosition, progress);
+			float elapsed = Time.time - fadeStartTime;
+			float normalizedTime = Mathf.Clamp01(elapsed / fadeDuration);
+
+			Color color = backgroundImageRenderer.color;
+			color.a = Mathf.Lerp(1.0f - initialColor.a, 1.0f, normalizedTime); // 변경
+
+			backgroundImageRenderer.color = color;
+
+			if (normalizedTime >= 1.0f)
+			{
+				isFading = false;
+			}
+		}
+	}
+
+	public void StartFadeIn()
+	{
+		if (!isFading)
+		{
+			fadeStartTime = Time.time;
+			isFading = true;
+		}
+	}
+
+	public void StartFadeOut()
+	{
+		if (!isFading)
+		{
+			fadeStartTime = Time.time;
+			isFading = true;
+			targetSprite = null; // 페이드 아웃 후 배경이 사라짐
 		}
 	}
 }
