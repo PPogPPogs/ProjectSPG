@@ -1618,7 +1618,7 @@ Transform:
   m_GameObject: {fileID: 763050922}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85499996, y: 0.085499994, z: 0}
+  m_LocalPosition: {x: -4.5, y: 0.085499994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   monsterPrefab: {fileID: 476387212200126742, guid: 175bfc335208c7242bfbd70c21b2e753, type: 3}
   intermediateMonsterPrefab: {fileID: 6274976155787857743, guid: b72b592bdfc9c394298f3420ffbe4877, type: 3}
   bossMonsterPrefab: {fileID: 556006546217553924, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
-  spawnPoint: {fileID: 2017102566}
+  spawnPoint: {fileID: 763050923}
   minSpawnInterval: 5
   maxSpawnInterval: 15
   dungeonSceneName: DungeonScene1
