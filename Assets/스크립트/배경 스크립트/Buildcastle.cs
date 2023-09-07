@@ -46,7 +46,7 @@ public class Buildcastle : MonoBehaviour
         }
 
         // Prefab을 terrainToClear의 위치에서 오프셋만큼 이동시킨 후 생성
-        Vector3 spawnPosition = terrainToClear.transform.position + new Vector3(0f, 2.75f, 0f); // 예: Y축으로 1만큼 이동
+        Vector3 spawnPosition = terrainToClear.transform.position + new Vector3(0f, 0f, 0f); // 예: Y축으로 1만큼 이동
         Instantiate(clearedTerrainPrefab, spawnPosition, Quaternion.identity);
         Destroy(terrainToClear);
     }

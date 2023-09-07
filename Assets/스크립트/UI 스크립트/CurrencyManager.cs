@@ -67,9 +67,9 @@ public class CurrencyManager : MonoBehaviour
     private void UpdateCurrencyText()
     {
         // UI Text에 현재 골드 재화량 업데이트
-        GoldText.text = "Gold: " + GetCurrencyAmount(Currency.CurrencyType.Gold);
-        WoodText.text = "Wood: " + GetCurrencyAmount(Currency.CurrencyType.Wood);
-        ironText.text = "iron: " + GetCurrencyAmount(Currency.CurrencyType.iron);
+        GoldText.text = GetCurrencyAmount(Currency.CurrencyType.Gold).ToString();
+        WoodText.text = GetCurrencyAmount(Currency.CurrencyType.Wood).ToString();
+        ironText.text = GetCurrencyAmount(Currency.CurrencyType.iron).ToString();
 
     }
 
