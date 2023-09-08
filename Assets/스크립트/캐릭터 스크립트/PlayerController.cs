@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         Move(horizontalInput);
         UpdateAnimatorParameters(horizontalInput);
 
+
+
         // 현재 체력 검사
         if (characterHealth.currentHealth <= 0) // CharacterHealth 스크립트의 currentHealth 사용
         {
