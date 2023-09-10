@@ -27,7 +27,7 @@ public class MonsterHealth : MonoBehaviour
 		else
 		{
 			animator.SetTrigger("TakeDamage");
-			monsterMovement.StopMovement(); // 해당 몬스터의 이동 중지
+			
 			Debug.Log("체력이 감소했습니다"); // 체력이 감소할 때마다 체력바 및 텍스트 업데이트
 		}
 	}

@@ -37,10 +37,6 @@ public class HandController : MonoBehaviour
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
 
-        if ((horizontalInput > 0 && !isFacingRight) || (horizontalInput < 0 && isFacingRight))
-        {
-            FlipCharacter();
-        }
     }
 
     private void FlipCharacter()

@@ -2117,6 +2117,7 @@ GameObject:
   - component: {fileID: 664520831}
   - component: {fileID: 664520832}
   - component: {fileID: 664520833}
+  - component: {fileID: 664520834}
   m_Layer: 0
   m_Name: run_bow_0
   m_TagString: Untagged
@@ -2252,6 +2253,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &664520834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664520828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa94ad32ea8b4c641a30c70c2c4ee9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 7100377136803816120, guid: 1dafed8cb7df9ad4eb7a8f6536852f31, type: 3}
+  arrowSpawnPoint: {fileID: 664520829}
+  arrowSpeed: 10
 --- !u!1 &684684843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,7 +5031,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 763050923}
-  - {fileID: 1452854800}
   - {fileID: 2017102566}
   - {fileID: 1884306293}
   - {fileID: 112280806}
@@ -5032,6 +5047,7 @@ Transform:
   - {fileID: 1889752520}
   - {fileID: 632368217}
   - {fileID: 1142543474}
+  - {fileID: 1452854800}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359256300

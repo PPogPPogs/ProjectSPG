@@ -78,6 +78,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool GetFlipX()
+    {
+        return isFacingRight;
+    }
+
+
     private void Jump()
     {
         rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
