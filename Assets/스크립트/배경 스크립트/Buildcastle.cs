@@ -9,6 +9,7 @@ public class Buildcastle : MonoBehaviour
 
     // 골드 추가량
     public int goldReward = 5; // 개간 시 얻는 골드 양
+    public int WoodReward = 10;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -43,6 +44,7 @@ public class Buildcastle : MonoBehaviour
         if (currencyManager != null)
         {
             currencyManager.AddCurrency(Currency.CurrencyType.Gold, goldReward);
+            currencyManager.AddCurrency(Currency.CurrencyType.Wood, WoodReward);
         }
 
         // Prefab을 terrainToClear의 위치에서 오프셋만큼 이동시킨 후 생성

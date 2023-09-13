@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private float nextAttackTime = 0f;
     private bool isAttacking = false;
     public AudioClip attackClip;
-    public Transform attackPoint;
+  
     public float attackRange = 5f;
     public LayerMask enemyLayers;
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Attack");
         playerAudio.PlayOneShot(attackClip);
         nextAttackTime = Time.time + attackCooldown;
-        DealDamage();
+        
     }
 
     private void Move(float horizontalInput)
@@ -131,21 +131,5 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Die animation triggered!");
         animator.SetTrigger("Die");
     }
-    public void DealDamage()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            MonsterHealth monsterHealth = enemy.GetComponent<MonsterHealth>();
-            if (monsterHealth != null)
-            {
-                monsterHealth.TakeDamage(30); // 10은 데미지량으로 조절 가능
-            }
-            BossMonsterHealth BossmonsterHealth = enemy.GetComponent<BossMonsterHealth>();
-            if (BossmonsterHealth != null)
-            {
-                BossmonsterHealth.TakeDamage(10); // 10은 데미지량으로 조절 가능
-            }
-        }
-    }
+   
 }
