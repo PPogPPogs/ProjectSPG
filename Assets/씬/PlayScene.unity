@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearLandText: {fileID: 486147255}
   terrainToClear: {fileID: 27544003}
-  clearedTerrainPrefab: {fileID: 3696939496082132268, guid: 6564cec21f90f5741a2c18b67b61ad9c, type: 3}
+  clearedTerrainPrefab: {fileID: 8486865795650592154, guid: 6564cec21f90f5741a2c18b67b61ad9c, type: 3}
   goldReward: 5
   WoodReward: 10
 --- !u!212 &27544005
@@ -2436,8 +2436,8 @@ MonoBehaviour:
   intermediateMonsterPrefab: {fileID: 6274976155787857743, guid: b72b592bdfc9c394298f3420ffbe4877, type: 3}
   bossMonsterPrefab: {fileID: 556006546217553924, guid: 705baa93ad6ff6040879e00f52d2e188, type: 3}
   spawnPoint: {fileID: 763050923}
-  minSpawnInterval: 5
-  maxSpawnInterval: 15
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
   dungeonSceneName: DungeonScene1
 --- !u!95 &763050925
 Animator:
@@ -2704,6 +2704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 2204903020367576998, guid: d253ba32ed0ad924ba2d9dd8edfbdc4c, type: 3}
+  woodCountText: {fileID: 101965382}
+  WoodDown: 5
 --- !u!1 &789412402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3896,7 +3898,6 @@ GameObject:
   - component: {fileID: 1139683850}
   - component: {fileID: 1139683851}
   - component: {fileID: 1139683852}
-  - component: {fileID: 1139683853}
   m_Layer: 0
   m_Name: "\uD558\uB298(\uC544\uCE68)"
   m_TagString: Untagged
@@ -3984,21 +3985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSecondsPerRealSecond: 3600
---- !u!114 &1139683853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139683849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a966aaccd44711449153410843f8b2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundImageRenderer: {fileID: 1139683851}
-  targetSprite: {fileID: 21300000, guid: 34898c7ca84478542b2852bb00e02e56, type: 3}
-  fadeDuration: 1
 --- !u!1 &1140366088
 GameObject:
   m_ObjectHideFlags: 0
@@ -6238,7 +6224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1665296216
 RectTransform:
   m_ObjectHideFlags: 0

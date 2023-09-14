@@ -6,7 +6,7 @@ public class Currency
 {
     public enum CurrencyType
     {
-        Gold,Wood,iron
+        Gold,Wood,Iron
         // 추가 재화 종류를 정의할 수 있음
     }
 

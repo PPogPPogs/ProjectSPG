@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArrow: 1
   attackPoint: {fileID: 1315673184384780118}
-  attackRange: 3
+  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8

@@ -77,6 +77,8 @@ public class Arrow : MonoBehaviour
                 {
                     collider.enabled = false;
                 }
+
+                Destroy(gameObject, 3);
             }
             else if (otherObject.CompareTag("Enemy"))
             {

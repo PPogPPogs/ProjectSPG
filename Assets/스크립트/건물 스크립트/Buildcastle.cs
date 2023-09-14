@@ -6,18 +6,21 @@ public class Buildcastle : MonoBehaviour
     public GameObject terrainToClear; // 개간할 지형
     public GameObject clearedTerrainPrefab;
     private bool isInRange = false;
+   
 
     // 골드 추가량
     public int goldReward = 5; // 개간 시 얻는 골드 양
     public int WoodReward = 10;
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") )
         {
             isInRange = true;
             clearLandText.SetActive(true);
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -51,5 +54,6 @@ public class Buildcastle : MonoBehaviour
         Vector3 spawnPosition = terrainToClear.transform.position + new Vector3(0f, 0f, 0f); // 예: Y축으로 1만큼 이동
         Instantiate(clearedTerrainPrefab, spawnPosition, Quaternion.identity);
         Destroy(terrainToClear);
+
     }
 }
