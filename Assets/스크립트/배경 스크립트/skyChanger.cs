@@ -27,7 +27,7 @@ public class skyChanger : MonoBehaviour
 		{
 			int currentHour = calendarManager.GetHour();
 
-			if (currentHour >= fadeOutStartTime && currentHour < fadeInStartTime && !fadingOut)
+			if (currentHour >= fadeOutStartTime && !fadingOut)
 			{
 				Debug.Log("아침이 되었습니다.");
 
