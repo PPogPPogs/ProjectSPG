@@ -34,10 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            Jump();
-        }
+        
 
         if (Input.GetButtonDown("Fire1") && !isAttacking && Time.time >= nextAttackTime)
         {
@@ -84,13 +81,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void Jump()
-    {
-        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        isGrounded = false;
-        playerAudio.Play();
-    }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

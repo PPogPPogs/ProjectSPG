@@ -12,7 +12,7 @@ public class CalendarManager : MonoBehaviour
     private void Start()
     {
         // 게임 시작 시 기본 시간 설정 (8월 23일 8시 23분)
-        SetTime(8, 23, 8, 23); // 시, 분, 일, 월
+        SetTime(5, 23, 8, 23); // 시, 분, 일, 월
     }
 
     private void Update()
@@ -33,8 +33,13 @@ public class CalendarManager : MonoBehaviour
         UpdateUI();
     }
 
+    public float GetGameTimeInSeconds()
+    {
+        return gameTime;
+    }
 
-    
+
+
     public void SetTime(int hour, int minute, int month, int day)
     {
         gameTime = hour * 3600 + minute * 60; // 시간을 초로 변환

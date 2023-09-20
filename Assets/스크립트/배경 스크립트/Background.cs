@@ -24,18 +24,15 @@ public class Background : MonoBehaviour
         {
             int currentHour = calendarManager.GetHour();
 
-            if (currentHour >= 5 && currentHour < 18)
+            if (currentHour >= 7 && currentHour < 17)
             {
                 targetColor = dayColor;
             }
-            else if ((currentHour >= 19 && currentHour <= 24) || currentHour < 5)
+            else if ((currentHour >= 17 && currentHour <= 24) || currentHour < 7)
             {
                 targetColor = nightColor;
             }
-            else if (currentHour >= 18 && currentHour < 19)
-            {
-                targetColor = sunsetColor; // "warm white"에 가까운 색상을 나타냅니다.
-            }
+
         }
 
         // 색상 보간을 사용하여 부드럽게 전환
