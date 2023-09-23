@@ -20,13 +20,13 @@ public class HandController : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         Move(horizontalInput);
         UpdateAnimatorParameters(horizontalInput);
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("IsAiming", true); // "IsAiming"은 불리언 매개 변수입니다.
         }
 
         // 마우스 오른쪽 버튼을 떼면 애니메이션 중지
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("IsAiming", false); // "IsAiming"을 false로 설정하여 애니메이션 중지
         }
