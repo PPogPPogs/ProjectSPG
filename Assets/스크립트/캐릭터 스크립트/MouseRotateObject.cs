@@ -20,12 +20,12 @@ public class MouseRotateObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
             initialMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             isAiming = false;
             transform.rotation = initialRotation;

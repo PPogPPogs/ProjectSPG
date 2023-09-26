@@ -20,7 +20,7 @@ public class ArrowShooter : MonoBehaviour
     private void Update()
     {
         // 마우스 우클릭 감지
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             isAiming = true;
         }
@@ -30,10 +30,7 @@ public class ArrowShooter : MonoBehaviour
         if (isAiming && Input.GetMouseButtonUp(0))
         {
             ShootArrow();
-            if (Input.GetMouseButtonUp(0))
-            {
-                isAiming = false;
-            }
+            
         }
     }
 
