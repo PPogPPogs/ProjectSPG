@@ -24,6 +24,11 @@ public class ArrowShooter : MonoBehaviour
         {
             isAiming = true;
         }
+        else if (Input.GetMouseButtonUp(1))
+            {
+            isAiming = false;
+        }
+       
         
 
         // 마우스 우클릭 상태에서 좌클릭으로 화살 발사
