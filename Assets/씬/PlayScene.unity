@@ -299,7 +299,7 @@ Transform:
   m_GameObject: {fileID: 27544003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38, y: -0.23, z: 0}
+  m_LocalPosition: {x: 0, y: -0.23, z: 0}
   m_LocalScale: {x: 8.4, y: 8.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5968502, y: -1.7957501, z: 0}
-    m_Extent: {x: 8.90535, y: 5.69595, z: 0}
+    m_Center: {x: 1.5979497, y: -1.8005501, z: 0}
+    m_Extent: {x: 8.90605, y: 5.69885, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -847,6 +847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154245296}
   - component: {fileID: 154245297}
+  - component: {fileID: 154245298}
   m_Layer: 0
   m_Name: "\uC624\uC5FC\uAD6C\uC5ED 3.2"
   m_TagString: Untagged
@@ -921,6 +922,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &154245298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154245295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b551fd75c215384d9f998e4891ef319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amonsterPrefab: {fileID: 0}
+  bmonsterPrefab: {fileID: 0}
+  cmonsterPrefab: {fileID: 0}
+  spawnPoints: []
 --- !u!1 &163444211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1118,7 @@ GameObject:
   - component: {fileID: 231595895}
   - component: {fileID: 231595898}
   - component: {fileID: 231595897}
+  - component: {fileID: 231595899}
   m_Layer: 0
   m_Name: "\uC624\uC5FC\uAD6C\uC5ED 1.2"
   m_TagString: Untagged
@@ -1232,13 +1250,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b4d2b5199a5d641816c20655e5436c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstmonsterPrefab: {fileID: 476387212200126742, guid: 175bfc335208c7242bfbd70c21b2e753, type: 3}
-  secondmonsterPrefab: {fileID: 0}
-  thirdmonsterPrefab: {fileID: 0}
+  firstmonsterPrefab: {fileID: 5002044948312838753, guid: 66793f7ef36e5ca47908e09fa421db9e, type: 3}
+  secondmonsterPrefab: {fileID: 4276185843420715721, guid: 30d555d3b3f108146b4eb3a2ab62d59c, type: 3}
+  thirdmonsterPrefab: {fileID: 4004081169125967076, guid: 5b8c4f2ed5d30e645890ba652e47cc27, type: 3}
   spawnPoints:
   - {fileID: 55583965}
   - {fileID: 1382143437}
   - {fileID: 2016281853}
+--- !u!114 &231595899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231595893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b4d2b5199a5d641816c20655e5436c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstmonsterPrefab: {fileID: 0}
+  secondmonsterPrefab: {fileID: 0}
+  thirdmonsterPrefab: {fileID: 0}
+  spawnPoints: []
 --- !u!1 &291090005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,7 +2635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 7100377136803816120, guid: 1dafed8cb7df9ad4eb7a8f6536852f31, type: 3}
   arrowSpawnPoint: {fileID: 664520829}
-  arrowSpeed: 10
+  arrowSpeed: 7
 --- !u!1 &684684843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,8 +3274,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 43.6109, y: -4.5039, z: 0}
-    m_Extent: {x: 35.801903, y: 6.0016, z: 0}
+    m_Center: {x: 43.616447, y: -4.4941, z: 0}
+    m_Extent: {x: 35.80265, y: 6.0033, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3587,8 +3621,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5964, y: -1.7983501, z: 0}
-    m_Extent: {x: 8.9038, y: 5.69995, z: 0}
+    m_Center: {x: 1.6050501, y: -1.7999998, z: 0}
+    m_Extent: {x: 8.90425, y: 5.7044, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4078,8 +4112,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.6018002, y: -1.80295, z: 0}
-    m_Extent: {x: 8.9068, y: 5.70305, z: 0}
+    m_Center: {x: 1.5978999, y: -1.8036, z: 0}
+    m_Extent: {x: 8.906799, y: 5.7061, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4716,6 +4750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264457673}
   - component: {fileID: 1264457672}
+  - component: {fileID: 1264457674}
   m_Layer: 0
   m_Name: "\uC624\uC5FC\uAD6C\uC5ED 2.2"
   m_TagString: Untagged
@@ -4790,6 +4825,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1357935803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1264457674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264457671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593ca26365fda4643bcbbfa9626a609d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onemonsterPrefab: {fileID: 3366613127711226481, guid: 26bba29d5180aa846a630a8d7f5e21b5, type: 3}
+  twomonsterPrefab: {fileID: 3345438972462217433, guid: df9249a024e60c149ad7e9e679cfd21b, type: 3}
+  threemonsterPrefab: {fileID: 5250750286454908545, guid: d92da6694dd44a34eb114a6fb56ab3c3, type: 3}
+  spawnPoints: []
 --- !u!1 &1314976477
 GameObject:
   m_ObjectHideFlags: 0
@@ -5885,6 +5936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560143624}
   - component: {fileID: 1560143625}
+  - component: {fileID: 1560143626}
   m_Layer: 0
   m_Name: "\uBAAC\uC2A4\uD130\uD3EC\uD0C8\uAD6C\uC5ED 2"
   m_TagString: Untagged
@@ -5959,6 +6011,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1560143626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560143623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0cdbb539cb52c419a79161677603a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aamonsterPrefab: {fileID: 0}
+  bbmonsterPrefab: {fileID: 0}
+  ccmonsterPrefab: {fileID: 0}
+  spawnPoints: []
 --- !u!1 &1565899958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6923,8 +6991,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.59865, y: -1.8001999, z: 0}
-    m_Extent: {x: 8.90685, y: 5.6993, z: 0}
+    m_Center: {x: 1.5994997, y: -1.7971, z: 0}
+    m_Extent: {x: 8.9079, y: 5.7023997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

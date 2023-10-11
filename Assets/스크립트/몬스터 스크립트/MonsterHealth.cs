@@ -33,10 +33,10 @@ public class MonsterHealth : MonoBehaviour
 
     private void Die()
     {
-        MonsterPortal monsterPortal = FindObjectOfType<MonsterPortal>();
-        if (monsterPortal != null)
+        Monstersummon monstersummon = FindObjectOfType<Monstersummon>();
+        if (monstersummon != null)
         {
-            monsterPortal.MonsterKilled();
+            monstersummon.Onemonsterkilled();
         }
         monsterMovement.ResumeMovement();
 
