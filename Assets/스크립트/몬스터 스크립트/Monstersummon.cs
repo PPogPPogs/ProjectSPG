@@ -15,6 +15,7 @@ public class Monstersummon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         animator = GetComponent<Animator>();
         isone = PlayerPrefs.GetInt("IsOne", 1) == 1;
         istwo = PlayerPrefs.GetInt("IsTwo", 0) == 1;
@@ -104,7 +105,7 @@ public class Monstersummon : MonoBehaviour
         PlayerPrefs.Save();
 
         animator.SetTrigger("Destroy");
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 5f);
     }
 
 
