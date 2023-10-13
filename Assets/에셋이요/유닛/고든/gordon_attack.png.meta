@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45140e268ecac4a44a8a3a076d255901
-      internalID: 2114279662
+      spriteID: ecf30caca824003439bdf9eef03b3717
+      internalID: -1901039780
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fce3010dc1ccb984b9db12c7d4f65fd5
-      internalID: 294921125
+      spriteID: b488b165c262d454186f347ecd5d15e3
+      internalID: 585398162
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93331aa63f6dd4f4a957f5eee8a1fec8
-      internalID: -664058694
+      spriteID: f64d83b4f80b46d42a696fc059a63e1c
+      internalID: 1889841171
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73521319129f325438a6de1d3f22e4a0
-      internalID: 858515230
+      spriteID: 5a42fa6ce0734ce4ab1ba386f982dec8
+      internalID: -1378166438
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 590cec9af7535c443bb8c796507aace3
-      internalID: 1178889060
+      spriteID: f3c096e86ecfe474d8ed6cb1990658d3
+      internalID: -489135051
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a215564c827baca48b738c9a5875c1a2
-      internalID: -167655561
+      spriteID: fa04cf16dd19afe4b863ffd3293851ab
+      internalID: -1031121829
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gordon_attack_0: 2114279662
-      gordon_attack_1: 294921125
-      gordon_attack_2: -664058694
-      gordon_attack_3: 858515230
-      gordon_attack_4: 1178889060
-      gordon_attack_5: -167655561
+      gordon_attack_0: -1901039780
+      gordon_attack_1: 585398162
+      gordon_attack_2: 1889841171
+      gordon_attack_3: -1378166438
+      gordon_attack_4: -489135051
+      gordon_attack_5: -1031121829
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
