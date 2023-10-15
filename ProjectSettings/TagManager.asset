@@ -48,6 +48,12 @@ TagManager:
   - name: background
     uniqueID: 743404499
     locked: 0
+  - name: rock
+    uniqueID: 510271865
+    locked: 0
+  - name: tree
+    uniqueID: 1484830349
+    locked: 0
   - name: middleground
     uniqueID: 3173405269
     locked: 0
