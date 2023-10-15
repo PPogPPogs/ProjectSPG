@@ -18,6 +18,10 @@ public class Longerunit : MonoBehaviour
     private bool isActionInProgress = false;
     public float minX = -5.0f; // 최소 X 위치
     public float maxX = 5.0f; // 최대 X 위치
+    public GameObject arrowPrefab; // 화살 프리팹
+    public float arrowSpeed = 10f; // 화살 발사 속도
+    public float gravity = 9.81f; // 중력 가속도
+
 
 
     private void Start()
@@ -67,18 +71,33 @@ public class Longerunit : MonoBehaviour
         }
     }
 
-
-    private void Attack()
+    public void Attack()
     {
         if (Time.time >= nextAttackTime)
         {
             animator.SetTrigger("Attack");
+            Vector3 direction = monster.position - transform.position;
+            float distance = direction.magnitude;
+
+            // 포물선 운동 계산
+            float time = distance / arrowSpeed;
+            float verticalSpeed = arrowSpeed - (gravity * time) / 2;
+            Vector3 initialVelocity = direction.normalized * arrowSpeed;
+            initialVelocity.y = verticalSpeed;
+
+            // 화살 발사
+            GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+            arrowRb.velocity = initialVelocity;
             // 여기에 실제 공격 로직을 구현
             Debug.Log("몬스터가 플레이어를 공격합니다!");
             currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
             nextAttackTime = Time.time + currentAttackCooldown;
         }
     }
+
+
+
 
     private void Movewall()
     {
@@ -186,7 +205,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
         transform.localScale = new Vector3(3, 3, 1);
@@ -228,7 +247,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
 
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
@@ -270,7 +289,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
 
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
@@ -315,7 +334,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
 
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
@@ -358,7 +377,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
 
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
@@ -401,7 +420,7 @@ public class Longerunit : MonoBehaviour
 
         // 무작위로 2~5초 사이의 시간을 생성
         float moveDistance = UnityEngine.Random.Range(3.0f, 6.0f);
-        float moveDuration = moveDistance / 1.0f;
+        float moveDuration = moveDistance / 0.7f;
         // 오른쪽으로 이동 중에 걷는 애니메이션 재생
         animator.SetBool("IsWalking", true);
         transform.localScale = new Vector3(-3, 3, 1);
