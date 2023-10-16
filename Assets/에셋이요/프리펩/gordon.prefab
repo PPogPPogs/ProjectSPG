@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30d7ad1be8d40648a4ee4a280419038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
+  detectionRange: 5
   targetPosition: {fileID: 0}
   moveSpeed: 2
   minAttackCooldown: 2
@@ -127,5 +127,5 @@ MonoBehaviour:
   minX: -5
   maxX: 5
   arrowPrefab: {fileID: 626334799432975467, guid: 8de3aabbea4101347acd1dfa4b60f2b4, type: 3}
-  arrowSpeed: 10
-  gravity: 3
+  arrowSpeed: 1
+  gravity: 0.3

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4516603389984532607}
   - component: {fileID: 7704275204704689168}
   - component: {fileID: 3320111359079505138}
+  - component: {fileID: 5106032291109506990}
   m_Layer: 0
   m_Name: acorn
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5106032291109506990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626334799432975467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe440e785795310478566a9b2f4042d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

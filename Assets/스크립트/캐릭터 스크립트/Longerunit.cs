@@ -75,26 +75,33 @@ public class Longerunit : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("Attack");
             Vector3 direction = monster.position - transform.position;
             float distance = direction.magnitude;
 
             // 포물선 운동 계산
-            float time = distance / arrowSpeed;
-            float verticalSpeed = arrowSpeed - (gravity * time) / 2;
-            Vector3 initialVelocity = direction.normalized * arrowSpeed;
-            initialVelocity.y = verticalSpeed;
+            animator.SetTrigger("Attack");
+
+            float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+            float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+            float time = distance / adjustedArrowSpeed;
+            float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+            Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+            initialVelocity.y = verticalSpeed*3;
 
             // 화살 발사
             GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
             Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
             arrowRb.velocity = initialVelocity;
+
             // 여기에 실제 공격 로직을 구현
             Debug.Log("몬스터가 플레이어를 공격합니다!");
             currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
             nextAttackTime = Time.time + currentAttackCooldown;
         }
     }
+
+
 
 
 
