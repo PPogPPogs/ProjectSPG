@@ -11,11 +11,12 @@ public class Monstersummon : MonoBehaviour
     private bool isInRange = false;
     private int Monsterkilled = 0;
     private Animator animator;
+    public MonsterSpawn1 monsterSpawn1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        monsterSpawn1 = GetComponent<MonsterSpawn1>();
         animator = GetComponent<Animator>();
         isone = PlayerPrefs.GetInt("IsOne", 1) == 1;
         istwo = PlayerPrefs.GetInt("IsTwo", 0) == 1;
@@ -84,6 +85,7 @@ public class Monstersummon : MonoBehaviour
         PlayerPrefs.SetInt("IsTwo", 1);
         PlayerPrefs.Save();
         Monsterkilled++;
+        monsterSpawn1.FirstMonsterDead();
     }
 
     private void Twoclear()
@@ -94,6 +96,7 @@ public class Monstersummon : MonoBehaviour
         PlayerPrefs.SetInt("IsThree", 1);
         PlayerPrefs.Save();
         Monsterkilled++;
+        monsterSpawn1.SecondMonsterDead();
     }
 
     private void Threeclear()
@@ -103,9 +106,11 @@ public class Monstersummon : MonoBehaviour
         PlayerPrefs.SetInt("IsThree", 0);
        
         PlayerPrefs.Save();
+        monsterSpawn1.ThirdMonsterDead();
 
         animator.SetTrigger("Destroy");
         Destroy(gameObject, 5f);
+
     }
 
 

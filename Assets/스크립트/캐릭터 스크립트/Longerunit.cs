@@ -19,8 +19,8 @@ public class Longerunit : MonoBehaviour
     public float minX = -5.0f; // 최소 X 위치
     public float maxX = 5.0f; // 최대 X 위치
     public GameObject arrowPrefab; // 화살 프리팹
-    public float arrowSpeed = 10f; // 화살 발사 속도
     public float gravity = 9.81f; // 중력 가속도
+    private Coroutine currentCoroutine;
 
 
 
@@ -51,6 +51,11 @@ public class Longerunit : MonoBehaviour
             int currentHour = calendarManager.GetHour();
             if (currentHour == 17)
             {
+                if (currentCoroutine != null)
+                {
+                    StopCoroutine(currentCoroutine);
+                    currentCoroutine = null;
+                }
                 Movewall();
             }
         }
@@ -79,8 +84,11 @@ public class Longerunit : MonoBehaviour
             float distance = direction.magnitude;
 
             // 포물선 운동 계산
-            animator.SetTrigger("Attack");
+            if(distance < 5 && distance >= 4.6)
+            { 
 
+            animator.SetTrigger("Attack");
+                float arrowSpeed = 0.5f;
             float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
             float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
             float time = distance / adjustedArrowSpeed;
@@ -98,6 +106,139 @@ public class Longerunit : MonoBehaviour
             Debug.Log("몬스터가 플레이어를 공격합니다!");
             currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
             nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 4.6 && distance >= 4)
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.52f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 4 && distance >= 3.6)
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.54f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 3.6 && distance >= 3.1)
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.54f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 3.1 && distance >= 2.7)
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.56f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 2.7 && distance >= 2.3)
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.6f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
+            else if (distance < 2.3 )
+            {
+                animator.SetTrigger("Attack");
+                float arrowSpeed = 0.63f;
+                float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
+                float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
+                float time = distance / adjustedArrowSpeed;
+                float verticalSpeed = adjustedArrowSpeed - (gravity * time) / 2;
+
+                Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
+                initialVelocity.y = verticalSpeed * 3;
+
+                // 화살 발사
+                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
+                arrowRb.velocity = initialVelocity;
+
+                // 여기에 실제 공격 로직을 구현
+                Debug.Log("몬스터가 플레이어를 공격합니다!");
+                currentAttackCooldown = Random.Range(minAttackCooldown, maxAttackCooldown);
+                nextAttackTime = Time.time + currentAttackCooldown;
+            }
         }
     }
 

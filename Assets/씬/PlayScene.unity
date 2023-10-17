@@ -299,7 +299,7 @@ Transform:
   m_GameObject: {fileID: 27544003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.23, z: 0}
+  m_LocalPosition: {x: -23.17, y: -0.29, z: 0}
   m_LocalScale: {x: 8.4, y: 8.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.6008, y: -1.8, z: 0}
-    m_Extent: {x: 8.9069, y: 5.7047997, z: 0}
+    m_Center: {x: 1.6013498, y: -1.7968501, z: 0}
+    m_Extent: {x: 8.89355, y: 5.70215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -610,37 +610,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 684684846}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &108065224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 108065225}
-  m_Layer: 0
-  m_Name: GameObject (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &108065225
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108065224}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.469872, y: 2.8006527, z: 0.2521912}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &109096962 stripped
 RectTransform:
@@ -3976,8 +3945,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 43.6096, y: -4.5021, z: 0}
-    m_Extent: {x: 35.797497, y: 6.0065002, z: 0}
+    m_Center: {x: 43.60675, y: -4.49615, z: 0}
+    m_Extent: {x: 35.799553, y: 6.0021496, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4255,8 +4224,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5969999, y: -1.79825, z: 0}
-    m_Extent: {x: 8.9023, y: 5.70385, z: 0}
+    m_Center: {x: 1.6025999, y: -1.79365, z: 0}
+    m_Extent: {x: 8.9036, y: 5.70215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4925,8 +4894,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5985, y: -1.7952001, z: 0}
-    m_Extent: {x: 8.908, y: 5.7025003, z: 0}
+    m_Center: {x: 1.5994499, y: -1.7964001, z: 0}
+    m_Extent: {x: 8.904449, y: 5.7013, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7545,6 +7514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearText: {fileID: 980385350}
+  monsterSpawn1: {fileID: 0}
 --- !u!212 &1834829723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7999,7 +7969,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1966499502}
   - component: {fileID: 1966499503}
-  - component: {fileID: 1966499504}
   m_Layer: 0
   m_Name: "\uC624\uC5FC\uAD6C\uC5ED 1 Light"
   m_TagString: Untagged
@@ -8056,8 +8025,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5960503, y: -1.8008999, z: 0}
-    m_Extent: {x: 8.90215, y: 5.6979, z: 0}
+    m_Center: {x: 1.5993001, y: -1.7968, z: 0}
+    m_Extent: {x: 8.9022, y: 5.704, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -8072,22 +8041,6 @@ MonoBehaviour:
   - {x: 10, y: -7, z: 0}
   - {x: 10, y: 3.4, z: 0}
   - {x: -6.8, y: 3.4, z: 0}
---- !u!114 &1966499504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966499501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b4d2b5199a5d641816c20655e5436c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstmonsterPrefab: {fileID: 0}
-  secondmonsterPrefab: {fileID: 0}
-  thirdmonsterPrefab: {fileID: 0}
-  spawnPoints: []
 --- !u!1 &1979184353
 GameObject:
   m_ObjectHideFlags: 0
@@ -9804,7 +9757,6 @@ SceneRoots:
   - {fileID: 7499222296826546359}
   - {fileID: 1990063604}
   - {fileID: 90572266}
-  - {fileID: 108065225}
   - {fileID: 1834829724}
   - {fileID: 843478306}
   - {fileID: 818781222}

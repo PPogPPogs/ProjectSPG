@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 
     public GameObject player;
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 dir = player.transform.position - this.transform.position;
         Vector3 moveVector = new Vector3(dir.x * cameraSpeed * Time.deltaTime, 0.0f, 0.0f);

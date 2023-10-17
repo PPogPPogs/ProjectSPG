@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MonsterSpawn1 : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class MonsterSpawn1 : MonoBehaviour
     private float spawnDelay = 10f; // 몬스터 생성 대기 시간
     private float timer = 0f;
     private bool monstersSpawned = false;
-
     private bool isfirstmonster = true;
     private bool issecondmonster = false;
     private bool isthirdmonster = false;
@@ -46,6 +46,7 @@ public class MonsterSpawn1 : MonoBehaviour
         isfirstmonster = PlayerPrefs.GetInt("IsFirstMonster", 1) == 1;
         issecondmonster = PlayerPrefs.GetInt("IsSecondMonster", 0) == 1;
         isthirdmonster = PlayerPrefs.GetInt("IsThirdMonster", 0) == 1;
+        
     }
 
     private void Update()
@@ -59,6 +60,17 @@ public class MonsterSpawn1 : MonoBehaviour
                 SpawnMonsters();
                 timer = 0f;
                 monstersSpawned = true; // 몬스터가 한 번만 생성되도록 플래그 설정
+            }
+        }
+        CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
+        if (calendarManager != null)
+        {
+            int currentHour = calendarManager.GetHour();
+            if (currentHour >= 8)
+            {
+                StartCoroutine(SpawnMonstersWithDelay());
+                
+
             }
         }
 
@@ -119,4 +131,27 @@ public class MonsterSpawn1 : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator SpawnMonstersWithDelay()
+    {
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            float randomDelay = Random.Range(3f, 5f);
+            yield return new WaitForSeconds(randomDelay);
+
+            if (isfirstmonster)
+            {
+                Instantiate(firstmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+            }
+            else if (issecondmonster && !isfirstmonster)
+            {
+                Instantiate(secondmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+            }
+            else if (isthirdmonster && !issecondmonster && !isfirstmonster)
+            {
+                Instantiate(thirdmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+            }
+        }
+    }
+
 }
