@@ -60,6 +60,7 @@ public class Buildwall : MonoBehaviour
                     // 클릭한 위치에 건물을 배치
                     Instantiate(buildingPrefab, mousePosition, Quaternion.identity);
                     isBuildingMode = !isBuildingMode;
+                    Destroy(previewBuilding);
                     // 건물을 짓은 후 "wood" 개수를 감소시킴
                     if (currencyManager != null)
                     {
@@ -97,11 +98,6 @@ public class Buildwall : MonoBehaviour
             Vector2 offset = new Vector2(0, height * 30f);
             transform.position = (Vector2)transform.position + offset;
 
-        }
-        else
-        {
-            // 건물 짓기 모드가 비활성화되면 미리보기용 건물 오브젝트 제거
-            Destroy(previewBuilding);
         }
     }
 

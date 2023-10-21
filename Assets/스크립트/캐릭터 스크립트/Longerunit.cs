@@ -51,11 +51,7 @@ public class Longerunit : MonoBehaviour
             int currentHour = calendarManager.GetHour();
             if (currentHour == 17)
             {
-                if (currentCoroutine != null)
-                {
-                    StopCoroutine(currentCoroutine);
-                    currentCoroutine = null;
-                }
+                StopCoroutine(currentCoroutine);
                 Movewall();
             }
         }
@@ -260,7 +256,7 @@ public class Longerunit : MonoBehaviour
         Vector3 currentPosition = transform.position;
         if (isActionInProgress)
         {
-            Debug.Log("이미 작업 중입니다.");
+            
             return;
         }
         if (currentPosition.x >= minX && currentPosition.x <= maxX)

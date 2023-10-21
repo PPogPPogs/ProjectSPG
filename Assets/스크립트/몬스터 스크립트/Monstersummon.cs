@@ -11,12 +11,13 @@ public class Monstersummon : MonoBehaviour
     private bool isInRange = false;
     private int Monsterkilled = 0;
     private Animator animator;
-    public MonsterSpawn1 monsterSpawn1;
+    private MonsterSpawn1 monsterSpawn1;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        monsterSpawn1 = GetComponent<MonsterSpawn1>();
+        monsterSpawn1 = FindObjectOfType<MonsterSpawn1>();
         animator = GetComponent<Animator>();
         isone = PlayerPrefs.GetInt("IsOne", 1) == 1;
         istwo = PlayerPrefs.GetInt("IsTwo", 0) == 1;

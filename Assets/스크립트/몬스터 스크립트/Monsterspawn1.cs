@@ -12,11 +12,13 @@ public class MonsterSpawn1 : MonoBehaviour
     private float spawnDelay = 10f; // 몬스터 생성 대기 시간
     private float timer = 0f;
     private bool monstersSpawned = false;
+    private bool monsterSSpawned = false;
     private bool isfirstmonster = true;
     private bool issecondmonster = false;
     private bool isthirdmonster = false;
     public Transform[] spawnPoints; // 몬스터 스폰 위치 배열
-
+    
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !monstersSpawned)
@@ -37,6 +39,7 @@ public class MonsterSpawn1 : MonoBehaviour
         {
             playerInsideTrigger = false;
             timer = 0f;
+            monstersSpawned = false;
         }
     }
 
@@ -46,7 +49,9 @@ public class MonsterSpawn1 : MonoBehaviour
         isfirstmonster = PlayerPrefs.GetInt("IsFirstMonster", 1) == 1;
         issecondmonster = PlayerPrefs.GetInt("IsSecondMonster", 0) == 1;
         isthirdmonster = PlayerPrefs.GetInt("IsThirdMonster", 0) == 1;
-        
+
+       
+
     }
 
     private void Update()
@@ -66,11 +71,15 @@ public class MonsterSpawn1 : MonoBehaviour
         if (calendarManager != null)
         {
             int currentHour = calendarManager.GetHour();
-            if (currentHour >= 8)
+            if (currentHour == 18 && !monsterSSpawned )
             {
-                StartCoroutine(SpawnMonstersWithDelay());
-                
+                StartCoroutine(SpawnMonstersWithDelay(30));
 
+                monsterSSpawned = true;
+            }
+            else if (currentHour == 19)
+            {
+                monsterSSpawned = false;
             }
         }
 
@@ -132,26 +141,40 @@ public class MonsterSpawn1 : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnMonstersWithDelay()
+    private IEnumerator SpawnMonstersWithDelay(int spawnCount)
     {
-        foreach (Transform spawnPoint in spawnPoints)
-        {
-            float randomDelay = Random.Range(3f, 5f);
-            yield return new WaitForSeconds(randomDelay);
+        int count = 0; // 생성된 몬스터 수
 
+        while (count < spawnCount)
+        {
             if (isfirstmonster)
             {
-                Instantiate(firstmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(firstmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
             else if (issecondmonster && !isfirstmonster)
             {
-                Instantiate(secondmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(secondmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
             else if (isthirdmonster && !issecondmonster && !isfirstmonster)
             {
-                Instantiate(thirdmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(thirdmonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
+            yield return new WaitForSeconds(Random.Range(3f, 5f));
         }
     }
+
+
 
 }
