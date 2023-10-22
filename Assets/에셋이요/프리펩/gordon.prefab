@@ -126,6 +126,7 @@ MonoBehaviour:
   maxAttackCooldown: 5
   minX: -5
   maxX: 5
+  rangexX: -12.5
+  rangeXX: -10.5
   arrowPrefab: {fileID: 626334799432975467, guid: 8de3aabbea4101347acd1dfa4b60f2b4, type: 3}
-  arrowSpeed: 0.58
   gravity: 0.3

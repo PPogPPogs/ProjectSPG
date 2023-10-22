@@ -18,23 +18,30 @@ public class Longerunit : MonoBehaviour
     private bool isActionInProgress = false;
     public float minX = -5.0f; // 최소 X 위치
     public float maxX = 5.0f; // 최대 X 위치
+    public float rangexX = -5.0f;
+    public float rangeXX = 5.0f;
     public GameObject arrowPrefab; // 화살 프리팹
     public float gravity = 9.81f; // 중력 가속도
     private Coroutine currentCoroutine;
+    private string PlayerPrefsKeyX = "PlayerPositionGoX";
+    private string PlayerPrefsKeyY = "PlayerPositionGoY";
+    private string PlayerPrefsKeyZ = "PlayerPositionGoZ";
 
 
 
     private void Start()
     {
+        
         animator = GetComponent<Animator>();
-
+        Vector3 position = LoadGoPosition();
+        transform.position = position;
 
     }
 
 
     private void Update()
     {
-
+        SaveGoPosition(transform.position);
 
         if (monster == null)
         {
@@ -49,10 +56,14 @@ public class Longerunit : MonoBehaviour
         if (calendarManager != null)
         {
             int currentHour = calendarManager.GetHour();
-            if (currentHour == 17)
+            if (currentHour == 7)
             {
-                StopCoroutine(currentCoroutine);
-                Movewall();
+                if (currentCoroutine != null)
+                {
+                    StopCoroutine(currentCoroutine);
+                    Movewall();
+                }
+                
             }
         }
         // 플레이어 감지 로직
@@ -246,7 +257,14 @@ public class Longerunit : MonoBehaviour
     private void Movewall()
     {
         // 이동 로직 구현
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
+        float randomX = Random.Range(rangexX, rangeXX);
+
+        // 현재 위치의 y와 z 좌표를 유지
+        Vector3 currentPosition = transform.position;
+        currentPosition.x = randomX;
+
+        // 생성된 위치로 이동
+        transform.position = currentPosition;
     }
 
 
@@ -605,6 +623,22 @@ public class Longerunit : MonoBehaviour
         PerformRandomAction();
     }
 
+    public void SaveGoPosition(Vector3 position)
+    {
 
+
+        PlayerPrefs.SetFloat(PlayerPrefsKeyX, position.x);
+        PlayerPrefs.SetFloat(PlayerPrefsKeyY, position.y);
+        PlayerPrefs.SetFloat(PlayerPrefsKeyZ, position.z);
+        PlayerPrefs.Save();
+
+    }
+    public Vector3 LoadGoPosition()
+    {
+        float x = PlayerPrefs.GetFloat(PlayerPrefsKeyX, 0f); // 0f는 기본 위치
+        float y = PlayerPrefs.GetFloat(PlayerPrefsKeyY, -0.63f);
+        float z = PlayerPrefs.GetFloat(PlayerPrefsKeyZ, 0f);
+        return new Vector3(x, y, z);
+    }
 
 }

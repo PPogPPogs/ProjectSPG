@@ -14,15 +14,22 @@ public class PlayerController : MonoBehaviour
     private float nextAttackTime = 0f;
     private bool isAttacking = false;
     public AudioClip attackClip;
-  
+    private string PlayerPrefsKeyX = "PlayerPositionX";
+    private string PlayerPrefsKeyY = "PlayerPositionY";
+    private string PlayerPrefsKeyZ = "PlayerPositionZ";
     public float attackRange = 5f;
     public LayerMask enemyLayers;
+    private bool isBossMonster = false;
+   
 
 
     private CharacterHealth characterHealth; // CharacterHealth 스크립트를 참조할 변수 추가
 
     private void Awake()
     {
+        
+        Vector3 position = LoadPlayerPosition();
+        transform.position = position;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
@@ -32,9 +39,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        
+
+        SavePlayerPosition(transform.position);
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Fire1") && !isAttacking && Time.time >= nextAttackTime)
         {
@@ -122,5 +131,33 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Die animation triggered!");
         animator.SetTrigger("Die");
     }
-   
+
+    public void SavePlayerPosition(Vector3 position)
+    {
+        CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
+        if (!isBossMonster)
+        {
+
+            if (calendarManager != null)
+            {
+                int currentHour = calendarManager.GetHour();
+                if (currentHour <= 17)
+                {
+                    PlayerPrefs.SetFloat(PlayerPrefsKeyX, position.x);
+                    PlayerPrefs.SetFloat(PlayerPrefsKeyY, position.y);
+                    PlayerPrefs.SetFloat(PlayerPrefsKeyZ, position.z);
+                    PlayerPrefs.Save();
+                   
+                }
+            }
+        }
+    }
+
+    public Vector3 LoadPlayerPosition()
+    {
+        float x = PlayerPrefs.GetFloat(PlayerPrefsKeyX, 0f); // 0f는 기본 위치
+        float y = PlayerPrefs.GetFloat(PlayerPrefsKeyY, -0.59f);
+        float z = PlayerPrefs.GetFloat(PlayerPrefsKeyZ, 0f);
+        return new Vector3(x, y, z);
+    }
 }
