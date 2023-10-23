@@ -6,7 +6,7 @@ public class Longerunit : MonoBehaviour
 {
     public float detectionRange = 10.0f; // 플레이어 감지 범위
     private Transform monster; // 플레이어의 Transform
-    public Transform targetPosition; // 이동시킬 목표 위치를 지정할 트랜스폼
+  
     public float moveSpeed = 1.0f; // 이동 속도
     public float minAttackCooldown = 2.0f; // 최소 공격 쿨타임
     public float maxAttackCooldown = 5.0f; // 최대 공격 쿨타임
@@ -26,8 +26,8 @@ public class Longerunit : MonoBehaviour
     private string PlayerPrefsKeyX = "PlayerPositionGoX";
     private string PlayerPrefsKeyY = "PlayerPositionGoY";
     private string PlayerPrefsKeyZ = "PlayerPositionGoZ";
-
-
+    private bool isMoving = false;
+    private Vector3 TargetPosition;
 
     private void Start()
     {
@@ -35,6 +35,7 @@ public class Longerunit : MonoBehaviour
         animator = GetComponent<Animator>();
         Vector3 position = LoadGoPosition();
         transform.position = position;
+        Callmovewall();
 
     }
 
@@ -52,20 +53,7 @@ public class Longerunit : MonoBehaviour
             }
         }
 
-        CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
-        if (calendarManager != null)
-        {
-            int currentHour = calendarManager.GetHour();
-            if (currentHour == 7)
-            {
-                if (currentCoroutine != null)
-                {
-                    StopCoroutine(currentCoroutine);
-                    Movewall();
-                }
-                
-            }
-        }
+        
         // 플레이어 감지 로직
 
         if (monster != null)
@@ -77,9 +65,63 @@ public class Longerunit : MonoBehaviour
                 Attack();
             }
         }
-        else
+        if (isMoving)
         {
-            PerformRandomAction();
+            float randomX = Random.Range(rangexX, rangeXX);
+            float newScaleX = transform.localScale.x;
+
+            // 목표 위치와 현재 위치를 비교하여 방향을 설정
+            if (randomX < transform.position.x)
+            {
+                newScaleX = -Mathf.Abs(newScaleX); // 왼쪽으로 이동
+            }
+            else
+            {
+                newScaleX = Mathf.Abs(newScaleX); // 오른쪽으로 이동
+            }
+
+            animator.SetBool("IsWalking", true);
+            Vector3 TargetPosition = new Vector3(randomX, transform.position.y, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+            transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
+
+            if (Vector3.Distance(transform.position, TargetPosition) <= 0.1f)
+            {
+                isMoving = false;
+
+                // 목표에 도달한 후 스케일 방향을 조정
+                if (newScaleX < 0)
+                {
+                    newScaleX = Mathf.Abs(newScaleX);
+                    transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
+                }
+
+                animator.SetBool("IsWalking", false); // 여기에 대기 모션 변경
+            }
+        }
+
+
+    }
+
+    public void Callmovewall()
+    {
+        CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
+        if (calendarManager != null)
+        {
+            int currentHour = calendarManager.GetHour();
+            if (currentHour >= 7)
+            {
+
+                Movewall();
+
+
+            }
+            else if( currentHour <= 7)
+            {
+                PerformRandomAction();
+
+                Debug.Log("Dd");
+            }
         }
     }
 
@@ -250,32 +292,23 @@ public class Longerunit : MonoBehaviour
     }
 
 
-
-
-
-
     private void Movewall()
     {
         // 이동 로직 구현
-        float randomX = Random.Range(rangexX, rangeXX);
-
-        // 현재 위치의 y와 z 좌표를 유지
-        Vector3 currentPosition = transform.position;
-        currentPosition.x = randomX;
-
-        // 생성된 위치로 이동
-        transform.position = currentPosition;
+        isMoving = true;
     }
 
 
 
     private void PerformRandomAction()
     {
+        Debug.Log("ddd");
         Vector3 currentPosition = transform.position;
         if (isActionInProgress)
         {
             
             return;
+            Debug.Log("ama");
         }
         if (currentPosition.x >= minX && currentPosition.x <= maxX)
         {
@@ -397,7 +430,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Head");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Head"));
+        isActionInProgress = false;
 
 
     }
@@ -439,7 +472,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Head");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Head"));
+        isActionInProgress = false;
 
 
     }
@@ -482,7 +515,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Health");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Health"));
+        isActionInProgress = false;
 
 
     }
@@ -527,7 +560,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Health");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Health"));
+        isActionInProgress = false;
 
 
     }
@@ -570,8 +603,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Mix");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Mix"));
-
+        isActionInProgress = false;
 
     }
 
@@ -612,7 +644,7 @@ public class Longerunit : MonoBehaviour
         animator.SetTrigger("Mix");
 
         // ㄱ 애니메이션이 끝나길 기다린 후 행동이 끝난 것으로 표시
-        yield return StartCoroutine(WaitForAnimation("Mix"));
+        isActionInProgress = false;
 
 
     }
