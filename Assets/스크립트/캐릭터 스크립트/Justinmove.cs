@@ -1,81 +1,200 @@
 using UnityEngine;
-using System.Collections;
 
 public class Justinmove : MonoBehaviour
 {
-    public float speed = 5.0f; // 움직임 속도
-    public float minX = -5.0f; // 최소 X 위치
-    public float maxX = 5.0f; // 최대 X 위치
-    public float minChangeDirectionTime = 2.0f; // 방향 변경 최소 시간(초)
-    public float maxChangeDirectionTime = 5.0f; // 방향 변경 최대 시간(초)
-
-    private int direction = 1; // 초기 움직임 방향 (1: 오른쪽, -1: 왼쪽)
+    public float moveSpeed = 1.0f;
+    private bool isMoving = false;
+    private bool isHomeComing = false;
+    private bool isArrive = false;
+    private bool isJustinActive = true;
     private Animator animator;
-    private Vector3 originalScale;
+    public GameObject Justin;
+    private Vector2 targetPosition; // 이동할 좌표
+    private  Vector3 newScale = new Vector3(3.0f, 3.0f, 1.0f);
+    private string JustinX = "justinX";
+    private string JustinY = "justinY";
+    private string JustinZ = "justinZ";
+    private bool isConstruction = false;
+    
+
+    public void SetTargetPosition(Vector2 position)
+    {
+        targetPosition = position;
+        PlayerPrefs.SetFloat("JustinSavedTargetX", targetPosition.x); // x 좌표 저장
+        PlayerPrefs.SetFloat("JustinSavedTargetY", targetPosition.y); // y 좌표 저장
+        PlayerPrefs.Save();
+        isMoving = true;
+        isHomeComing = false;
+    }
+
+
+    public void SetHomePosition(Vector2 position)
+    {
+        targetPosition = position;
+        PlayerPrefs.SetFloat("JustinSavedHomeX", targetPosition.x); // x 좌표 저장
+        PlayerPrefs.SetFloat("JustinSavedHomeY", targetPosition.y); // y 좌표 저장
+        PlayerPrefs.Save();
+        isHomeComing = true;
+        isMoving = false;
+
+    }
+
 
     private void Start()
     {
-        // 처음으로 방향을 변경합니다.
-        StartCoroutine(ChangeDirection());
-
-        // Animator 컴포넌트 가져오기
         animator = GetComponent<Animator>();
+        Vector3 position = JustinPosition();
+        transform.position = position;
+        isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
+        int justinActive = PlayerPrefs.GetInt("JustinActive", 1); // 기본값은 활성화 (1)
+        Justin.SetActive(justinActive == 1);
+        float savedTargetX = PlayerPrefs.GetFloat("JustinSavedTargetX", float.NaN); // NaN을 기본값으로 설정
+        float savedTargetY = PlayerPrefs.GetFloat("JustinSavedTargetY", float.NaN); // NaN을 기본값으로 설정
 
-        // 캐릭터의 초기 스케일 저장
-        originalScale = transform.localScale;
+        // 저장된 좌표가 NaN이 아니면 SetTargetPosition 함수를 호출하여 저장된 좌표로 이동
+        if (!float.IsNaN(savedTargetX) && !float.IsNaN(savedTargetY))
+        {
+            SetTargetPosition(new Vector2(savedTargetX, savedTargetY));
+        }
+
+        float savedHomeX = PlayerPrefs.GetFloat("JustinSavedHomeX", float.NaN); // NaN을 기본값으로 설정
+        float savedHomeY = PlayerPrefs.GetFloat("JustinSavedHomeY", float.NaN); // NaN을 기본값으로 설정
+
+        // 저장된 좌표가 NaN이 아니면 SetTargetPosition 함수를 호출하여 저장된 좌표로 이동
+        if (!float.IsNaN(savedHomeX) && !float.IsNaN(savedHomeY))
+        {
+            SetHomePosition(new Vector2(savedHomeX, savedHomeY));
+        }
     }
+
 
     private void Update()
     {
-        // 현재 위치를 저장합니다.
-        Vector3 currentPosition = transform.position;
+        SaveJustinPosition(transform.position);
 
-        // 움직임 방향에 따라 위치를 조정합니다.
-        currentPosition.x += direction * speed * Time.deltaTime;
-
-        // 새로운 위치로 이동합니다.
-        transform.position = currentPosition;
-
-        if (currentPosition.x <= minX || currentPosition.x >= maxX)
+        if (isMoving)
         {
-            direction *= -1; // 방향을 반전시킴
-
-            // 캐릭터 스케일을 방향에 따라 뒤집습니다.
-            if (direction < 0)
-            {
-                transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
-            }
-            else
-            {
-                transform.localScale = originalScale;
-            }
+            MoveToTarget();
+            
         }
-
-        // 움직임에 따라 애니메이션을 제어합니다.
-        bool isRunning = Mathf.Abs(direction) > 0;
-        animator.SetBool("isRunning", isRunning);
+        if (isHomeComing)
+        {
+            MoveToHome();
+           
+        }
     }
 
-    private IEnumerator ChangeDirection()
+
+
+    public void MoveToTarget()
     {
-        while (true)
+        PlayerPrefs.SetInt("IsConstruction", 1);
+        PlayerPrefs.Save();
+        PlayerPrefs.SetInt("JustinActive", 1);
+        PlayerPrefs.Save();
+        isArrive = false;
+        float distanceToTargetScale = targetPosition.x - transform.position.x;
+        if (distanceToTargetScale > 0.1f)
         {
-            // 랜덤한 시간을 기다립니다.
-            float changeDirectionTime = Random.Range(minChangeDirectionTime, maxChangeDirectionTime);
-            yield return new WaitForSeconds(changeDirectionTime);
+            transform.localScale = new Vector3(newScale.x, newScale.y, newScale.z); // newScale을 Vector3로 변환하여 할당
+        }
+        else if(distanceToTargetScale < -0.1f)
+        {
+            transform.localScale = new Vector3(-newScale.x, newScale.y, newScale.z);
+        }
 
-            // 방향을 랜덤하게 변경합니다.
-            direction *= Random.Range(0, 2) == 0 ? 1 : -1; // 0 또는 1을 랜덤하게 선택하여 방향 변경
+        // 이동 로직을 적용합니다.
+        Vector3 direction = new Vector3(targetPosition.x, targetPosition.y, transform.position.z) - transform.position;
+        direction.Normalize();
 
-            // 캐릭터 스케일을 방향에 따라 뒤집습니다.
-            if (direction < 0)
+        animator.SetBool("IsRunning", true);
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        float distanceToTarget = Mathf.Abs(targetPosition.x - transform.position.x); // x 좌표만 고려한 거리 계산
+
+        if (distanceToTarget < 0.1f) // 거리 임계값을 조정
+        {
+            if (!isArrive)
             {
-                transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
-            }
-            else
-            {
-                transform.localScale = originalScale;
+                TargetArrive();
             }
         }
+    }
+
+    public void MoveToHome()
+    {
+        isArrive = false;
+        transform.localScale = new Vector3(-newScale.x, newScale.y, newScale.z); // newScale을 Vector3로 변환하여 할당
+
+        // 이동 로직을 적용합니다.
+        Vector3 direction = new Vector3(targetPosition.x, targetPosition.y, transform.position.z) - transform.position;
+        direction.Normalize();
+
+        animator.SetBool("IsRunning", true);
+        transform.Translate(direction * moveSpeed * Time.deltaTime);
+
+        float distanceToTarget = Mathf.Abs(targetPosition.x - transform.position.x); // x 좌표만 고려한 거리 계산
+
+        if (distanceToTarget < 0.1f) // 거리 임계값을 조정
+        {
+            if (!isArrive)
+            {
+                HomeArrive();
+            }
+        }
+    }
+
+    public void TargetArrive()
+    {
+        PlayerPrefs.DeleteKey("JustinSavedTargetX");
+        PlayerPrefs.DeleteKey("JustinSavedTargetY");
+        PlayerPrefs.Save();
+        isArrive = true;
+        animator.SetBool("IsRunning", false);
+        animator.SetTrigger("Building");
+        isMoving = false; // 이동 중이 아니라고 표시
+        isHomeComing = false; // 이동 중이 아니라고 표시
+        Cannon cannon = FindObjectOfType<Cannon>();
+        if (cannon != null)
+        {
+            
+            cannon.StartConstruction();
+           
+        }
+    }
+    
+    private Vector3 JustinPosition()
+    {
+        float x = PlayerPrefs.GetFloat(JustinX, -15.0f); // 0f는 기본 위치
+        float y = PlayerPrefs.GetFloat(JustinY, -0.63f);
+        float z = PlayerPrefs.GetFloat(JustinZ, 0f);
+        return new Vector3(x, y, z);
+
+    }
+
+    public void HomeArrive()
+    {
+        PlayerPrefs.DeleteKey("JustinSavedHomeX");
+        PlayerPrefs.DeleteKey("JustinSavedHomeY");
+        PlayerPrefs.Save();
+        Justin.SetActive(false);
+        isArrive = true;
+        animator.SetBool("IsRunning", false);
+        isMoving = false;
+        isHomeComing = false;
+        PlayerPrefs.SetInt("JustinActive", 0);
+        PlayerPrefs.Save();
+    }
+
+
+    public void SaveJustinPosition(Vector3 position)
+    {
+
+
+        PlayerPrefs.SetFloat(JustinX, position.x);
+        PlayerPrefs.SetFloat(JustinY, position.y);
+        PlayerPrefs.SetFloat(JustinZ, position.z);
+        PlayerPrefs.Save();
+
     }
 }

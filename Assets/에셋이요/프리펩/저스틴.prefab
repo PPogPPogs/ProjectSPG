@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5854653528332515698}
   m_Layer: 9
   m_Name: "\uC800\uC2A4\uD2F4"
-  m_TagString: Untagged
+  m_TagString: Justin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2096421113
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 841286102, guid: cee79787f2e2dd7468fddff54fdce29a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,11 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d980bc5803a73c429c7e9e96cd754b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  minX: -4
-  maxX: 9
-  minChangeDirectionTime: 5
-  maxChangeDirectionTime: 13
+  targetPositions: []
+  moveSpeed: 5
 --- !u!95 &9071390768950497190
 Animator:
   serializedVersion: 5

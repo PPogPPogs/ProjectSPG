@@ -23,9 +23,9 @@ public class Longerunit : MonoBehaviour
     public GameObject arrowPrefab; // 화살 프리팹
     public float gravity = 9.81f; // 중력 가속도
     private Coroutine currentCoroutine;
-    private string PlayerPrefsKeyX = "PlayerPositionGoX";
-    private string PlayerPrefsKeyY = "PlayerPositionGoY";
-    private string PlayerPrefsKeyZ = "PlayerPositionGoZ";
+    private string GodonX = "PlayerPositionGoX";
+    private string GodonY = "PlayerPositionGoY";
+    private string GodonZ = "PlayerPositionGoZ";
     private bool isMoving = false;
     private Vector3 TargetPosition;
 
@@ -659,17 +659,17 @@ public class Longerunit : MonoBehaviour
     {
 
 
-        PlayerPrefs.SetFloat(PlayerPrefsKeyX, position.x);
-        PlayerPrefs.SetFloat(PlayerPrefsKeyY, position.y);
-        PlayerPrefs.SetFloat(PlayerPrefsKeyZ, position.z);
+        PlayerPrefs.SetFloat(GodonX, position.x);
+        PlayerPrefs.SetFloat(GodonY, position.y);
+        PlayerPrefs.SetFloat(GodonZ, position.z);
         PlayerPrefs.Save();
 
     }
     public Vector3 LoadGoPosition()
     {
-        float x = PlayerPrefs.GetFloat(PlayerPrefsKeyX, 0f); // 0f는 기본 위치
-        float y = PlayerPrefs.GetFloat(PlayerPrefsKeyY, -0.63f);
-        float z = PlayerPrefs.GetFloat(PlayerPrefsKeyZ, 0f);
+        float x = PlayerPrefs.GetFloat(GodonX, 0f); // 0f는 기본 위치
+        float y = PlayerPrefs.GetFloat(GodonY, -0.63f);
+        float z = PlayerPrefs.GetFloat(GodonZ, 0f);
         return new Vector3(x, y, z);
     }
 

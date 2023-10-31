@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     private float nextAttackTime = 0f;
     private bool isAttacking = false;
     public AudioClip attackClip;
-    private string PlayerPrefsKeyX = "PlayerPositionX";
-    private string PlayerPrefsKeyY = "PlayerPositionY";
-    private string PlayerPrefsKeyZ = "PlayerPositionZ";
+    private string PlayerX = "PlayerPositionX";
+    private string PlayerY = "PlayerPositionY";
+    private string PlayerZ = "PlayerPositionZ";
     public float attackRange = 5f;
     public LayerMask enemyLayers;
     private bool isBossMonster = false;
@@ -143,9 +143,9 @@ public class PlayerController : MonoBehaviour
                 int currentHour = calendarManager.GetHour();
                 if (currentHour <= 17)
                 {
-                    PlayerPrefs.SetFloat(PlayerPrefsKeyX, position.x);
-                    PlayerPrefs.SetFloat(PlayerPrefsKeyY, position.y);
-                    PlayerPrefs.SetFloat(PlayerPrefsKeyZ, position.z);
+                    PlayerPrefs.SetFloat(PlayerX, position.x);
+                    PlayerPrefs.SetFloat(PlayerY, position.y);
+                    PlayerPrefs.SetFloat(PlayerZ, position.z);
                     PlayerPrefs.Save();
                    
                 }
@@ -155,9 +155,9 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 LoadPlayerPosition()
     {
-        float x = PlayerPrefs.GetFloat(PlayerPrefsKeyX, 0f); // 0f는 기본 위치
-        float y = PlayerPrefs.GetFloat(PlayerPrefsKeyY, -0.59f);
-        float z = PlayerPrefs.GetFloat(PlayerPrefsKeyZ, 0f);
+        float x = PlayerPrefs.GetFloat(PlayerX, 0f); // 0f는 기본 위치
+        float y = PlayerPrefs.GetFloat(PlayerY, -0.59f);
+        float z = PlayerPrefs.GetFloat(PlayerZ, 0f);
         return new Vector3(x, y, z);
     }
 }

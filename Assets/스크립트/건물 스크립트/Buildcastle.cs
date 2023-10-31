@@ -9,7 +9,7 @@ public class Buildcastle : MonoBehaviour
     private bool isInRange = false;
 
     // PlayerPrefs에 사용할 키
-    private string PlayerPrefsKey = "TerrainCleared";
+    private string Castle = "TerrainCleared";
 
     // 골드 추가량
     public int goldReward = 5; // 개간 시 얻는 골드 양
@@ -19,7 +19,7 @@ public class Buildcastle : MonoBehaviour
     {
         
         // PlayerPrefs에서 상태를 불러와서 건물을 설정
-        if (PlayerPrefs.HasKey(PlayerPrefsKey) && PlayerPrefs.GetInt(PlayerPrefsKey) == 1)
+        if (PlayerPrefs.HasKey(Castle) && PlayerPrefs.GetInt(Castle) == 1)
         {
             SetClearedBuilding();
         }
@@ -46,7 +46,7 @@ public class Buildcastle : MonoBehaviour
 
     private void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.T) && !PlayerPrefs.HasKey(PlayerPrefsKey))
+        if (isInRange && Input.GetKeyDown(KeyCode.T) && !PlayerPrefs.HasKey(Castle))
         {
             ClearTerrain();
         }
@@ -66,7 +66,7 @@ public class Buildcastle : MonoBehaviour
         SetClearedBuilding();
 
         // PlayerPrefs에 상태 저장
-        PlayerPrefs.SetInt(PlayerPrefsKey, 1);
+        PlayerPrefs.SetInt(Castle, 1);
         PlayerPrefs.Save();
     }
 

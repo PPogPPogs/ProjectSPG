@@ -49,6 +49,7 @@ public class MonsterSpawn1 : MonoBehaviour
         isfirstmonster = PlayerPrefs.GetInt("IsFirstMonster", 1) == 1;
         issecondmonster = PlayerPrefs.GetInt("IsSecondMonster", 0) == 1;
         isthirdmonster = PlayerPrefs.GetInt("IsThirdMonster", 0) == 1;
+        PlayerPrefs.DeleteAll();
 
        
 
