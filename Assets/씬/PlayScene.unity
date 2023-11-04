@@ -659,8 +659,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5919998, y: -1.79835, z: 0}
-    m_Extent: {x: 8.9001, y: 5.70795, z: 0}
+    m_Center: {x: 1.5947499, y: -1.8010498, z: 0}
+    m_Extent: {x: 8.89945, y: 5.70475, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2924,6 +2924,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &440237190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440237191}
+  - component: {fileID: 440237192}
+  m_Layer: 0
+  m_Name: "\uC88C\uD45C 1"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440237191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440237190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1129654169}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440237192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440237190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a6bf73748f3be4cbca525a9f205f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CannonPrefab: {fileID: 8239257473245521550, guid: c3802f1d691a9e945bbc9a29264c3a1d, type: 3}
+  GodonPrefab: {fileID: 0}
+  LionPrefab: {fileID: 0}
+  DooPrefab: {fileID: 0}
+  PandaPrefab: {fileID: 0}
 --- !u!1 &460189015
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,8 +5360,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 43.616302, y: -4.4996996, z: 0}
-    m_Extent: {x: 35.8003, y: 6.0056, z: 0}
+    m_Center: {x: 43.614452, y: -4.5004, z: 0}
+    m_Extent: {x: 35.79575, y: 6.0019, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5809,8 +5858,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5997, y: -1.7998999, z: 0}
-    m_Extent: {x: 8.9081, y: 5.7072997, z: 0}
+    m_Center: {x: 1.5948999, y: -1.8040999, z: 0}
+    m_Extent: {x: 8.9049, y: 5.7025, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6911,8 +6960,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5989997, y: -1.8015, z: 0}
-    m_Extent: {x: 8.9057, y: 5.7058, z: 0}
+    m_Center: {x: 1.5993998, y: -1.806, z: 0}
+    m_Extent: {x: 8.9053, y: 5.6989, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -7006,6 +7055,38 @@ RectTransform:
   m_AnchoredPosition: {x: 59, y: -2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 1}
+--- !u!1 &1129654168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129654169}
+  m_Layer: 0
+  m_Name: "\uAC74\uBB3C\uC0DD\uC131 \uBE48\uAC8C\uC784\uC624\uBE0C\uC81D\uD2B8"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129654169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129654168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.720234, y: 13.601406, z: -0.19757235}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 440237191}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139683849
 GameObject:
   m_ObjectHideFlags: 0
@@ -12389,8 +12470,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5986502, y: -1.79555, z: 0}
-    m_Extent: {x: 8.90585, y: 5.70545, z: 0}
+    m_Center: {x: 1.60235, y: -1.8004501, z: 0}
+    m_Extent: {x: 8.90175, y: 5.7056503, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13830,3 +13911,4 @@ SceneRoots:
   - {fileID: 1695032628}
   - {fileID: 4567497324868877270}
   - {fileID: 1977886133}
+  - {fileID: 1129654169}

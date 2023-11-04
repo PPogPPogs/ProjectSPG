@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 4378031984611399746}
   - component: {fileID: 2061172686521967803}
   m_Layer: 0
-  m_Name: "\uB300\uD3EC"
+  m_Name: Cannon
   m_TagString: DefenseTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

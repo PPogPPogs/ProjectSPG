@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cannon : MonoBehaviour
+public class LionBuilding : MonoBehaviour
 {
     public float constructionTime = 10.0f; // 건물 건설 시간(초)
     public float constructionTimePercent = 1.0f; // 건물 건설 시간 배율(조종값)
@@ -45,12 +45,12 @@ public class Cannon : MonoBehaviour
     }
 
     // 플레이어가 건물 트리거 영역에 들어갈 때 건설 시작
-    
+
 
     // 건설 시작
-    public  void StartConstruction()
+    public void StartConstruction()
     {
-        
+
         isUnderConstruction = true;
         Slider.SetActive(true);
         // 다른 초기화 작업 수행
@@ -72,11 +72,11 @@ public class Cannon : MonoBehaviour
         {
             // SetTargetPosition 메서드를 호출하여 좌표를 전달
             justinmove.SetHomePosition(spawnPosition);
-            
+
         }
-        
-        
-       
+
+
+
 
     }
 
@@ -171,9 +171,9 @@ public class Cannon : MonoBehaviour
 
         if (key != "")
         {
-            PlayerPrefs.SetFloat($"{key}XCannon", position.x);
-            PlayerPrefs.SetFloat($"{key}YCannon", position.y);
-            PlayerPrefs.SetFloat($"{key}ZCannon", position.z);
+            PlayerPrefs.SetFloat($"{key}XLionBuilding", position.x);
+            PlayerPrefs.SetFloat($"{key}YLionBuilding", position.y);
+            PlayerPrefs.SetFloat($"{key}ZLionBuilding", position.z);
             PlayerPrefs.Save();
         }
     }
