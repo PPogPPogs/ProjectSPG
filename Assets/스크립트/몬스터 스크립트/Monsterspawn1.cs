@@ -57,17 +57,6 @@ public class MonsterSpawn1 : MonoBehaviour
 
     private void Update()
     {
-        if (playerInsideTrigger)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= spawnDelay)
-            {
-                SpawnMonsters();
-                timer = 0f;
-                monstersSpawned = true; // 몬스터가 한 번만 생성되도록 플래그 설정
-            }
-        }
         CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
         if (calendarManager != null)
         {

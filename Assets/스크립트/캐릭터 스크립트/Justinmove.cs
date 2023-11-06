@@ -15,6 +15,7 @@ public class Justinmove : MonoBehaviour
     private string JustinY = "justinY";
     private string JustinZ = "justinZ";
     private bool isConstruction = false;
+    private bool isConstructioning = false;
     
 
     public void SetTargetPosition(Vector2 position)
@@ -46,6 +47,7 @@ public class Justinmove : MonoBehaviour
         Vector3 position = JustinPosition();
         transform.position = position;
         isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
+        isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
         int justinActive = PlayerPrefs.GetInt("JustinActive", 1); // 기본값은 활성화 (1)
         Justin.SetActive(justinActive == 1);
         float savedTargetX = PlayerPrefs.GetFloat("JustinSavedTargetX", float.NaN); // NaN을 기본값으로 설정
@@ -81,6 +83,10 @@ public class Justinmove : MonoBehaviour
         {
             MoveToHome();
            
+        }
+        if (isConstructioning)
+        {
+            animator.SetTrigger("Building");
         }
     }
 
@@ -146,6 +152,8 @@ public class Justinmove : MonoBehaviour
 
     public void TargetArrive()
     {
+        PlayerPrefs.SetInt("IsConstructioning", 1);
+        PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("JustinSavedTargetX");
         PlayerPrefs.DeleteKey("JustinSavedTargetY");
         PlayerPrefs.Save();

@@ -11,18 +11,31 @@ public class GodonBuilding : MonoBehaviour
     public Slider constructionBar;
     public GameObject Slider;
     private bool isConstruction = false;
+    private bool isConstructioning = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
 
 
 
     private void Start()
     {
+        isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
+        isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
         // 건설 진행 상태를 나타낼 UI 또는 게임 오브젝트를 가져옵니다.
         // 예시: ConstructionBar는 건설 진행 상태를 표시하는 게임 오브젝트
-        Slider.SetActive(false); // 초기에는 숨겨둡니다.
+        if (!isConstructioning)
+        {
+            Slider.SetActive(false); // 초기에는 숨겨둡니다.
+        }
+        else 
+        {
+            StartConstruction();
+            float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
+            constructionProgress = savedConstructionProgress;
+
+        }
         realcunstructionTime = constructionTime * constructionTimePercent;
-        isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
-        DontDestroyOnLoad(gameObject);
+        
+        
         SavePosition();
     }
 
@@ -45,12 +58,12 @@ public class GodonBuilding : MonoBehaviour
     }
 
     // 플레이어가 건물 트리거 영역에 들어갈 때 건설 시작
-
+    
 
     // 건설 시작
-    public void StartConstruction()
+    public  void StartConstruction()
     {
-
+        
         isUnderConstruction = true;
         Slider.SetActive(true);
         // 다른 초기화 작업 수행
@@ -72,10 +85,13 @@ public class GodonBuilding : MonoBehaviour
         {
             // SetTargetPosition 메서드를 호출하여 좌표를 전달
             justinmove.SetHomePosition(spawnPosition);
-
+            
         }
 
-
+        PlayerPrefs.SetInt("IsConstructioning", 0);
+        PlayerPrefs.Save();
+        PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
+        PlayerPrefs.Save(); // 변경 사항을 저장
 
 
     }
@@ -87,6 +103,8 @@ public class GodonBuilding : MonoBehaviour
 
         // "constructionBar" 게임 오브젝트의 스케일을 조절하여 체우기 효과 생성
         constructionBar.value = (float)constructionProgress / realcunstructionTime;
+        PlayerPrefs.SetFloat("ConstructionProgress", constructionProgress);
+        PlayerPrefs.Save();
     }
 
     private void SavePosition()
