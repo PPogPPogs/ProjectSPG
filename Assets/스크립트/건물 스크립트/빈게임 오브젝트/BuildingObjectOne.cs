@@ -9,10 +9,15 @@ public class BuildingObjectOne : MonoBehaviour
     public GameObject LionPrefab;
     public GameObject DooPrefab;
     public GameObject PandaPrefab;
+    public GameObject JustinBuildingOnePrefab;
+    public GameObject JustinBuildingPrefab;
+    private bool justinOneGo = false;
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        
+        justinOneGo = PlayerPrefs.GetInt("JustinOneGo", 0) == 1;
+        
         float CannonX = PlayerPrefs.GetFloat($"{2.5}XCannon", 0f); // X 좌표를 불러옵니다.
         float CannonY = PlayerPrefs.GetFloat($"{2.5}YCannon", 0f); // Y 좌표를 불러옵니다.
         float CannonZ = PlayerPrefs.GetFloat($"{2.5}ZCannon", 0f); // Z 좌표를 불러옵니다.
@@ -25,6 +30,24 @@ public class BuildingObjectOne : MonoBehaviour
         }
         //Connon 끝
 
+        float JustinX = PlayerPrefs.GetFloat("XJustinBuilding", 0f); // X 좌표를 불러옵니다.
+        float JustinY = PlayerPrefs.GetFloat("YJustinBuilding", 0f); // Y 좌표를 불러옵니다.
+        float JustinZ = PlayerPrefs.GetFloat("ZJustinBuilding", 0f); // Z 좌표를 불러옵니다.
+
+        // 좌표가 저장되어 있는지 확인
+        if (JustinX != 0f || JustinY != 0f || JustinZ != 0f)
+        {
+            GameObject JustinOneObject = Instantiate(JustinBuildingOnePrefab, new Vector3(JustinX, JustinY, JustinZ), Quaternion.identity);
+            Debug.Log("불러옴");
+        }
+        else
+        {
+            // 저장된 좌표가 없을 때 특정 좌표로 프리팹을 생성
+            Vector3 defaultPosition = new Vector3(-16f, -0.6f, 0f);
+            GameObject JustinOneObject = Instantiate(JustinBuildingPrefab, defaultPosition, Quaternion.identity);
+            Debug.Log("저장된 좌표가 없어 특정 좌표로 생성됨");
+        }
+        //Justin 끝
         float GodonX = PlayerPrefs.GetFloat($"{2.5}XGodonBuilding", 0f); // X 좌표를 불러옵니다.
         float GodonY = PlayerPrefs.GetFloat($"{2.5}YGodonBuilding", 0f); // Y 좌표를 불러옵니다.
         float GodonZ = PlayerPrefs.GetFloat($"{2.5}ZGodonBuilding", 0f); // Z 좌표를 불러옵니다.

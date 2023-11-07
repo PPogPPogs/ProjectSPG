@@ -34,7 +34,7 @@ public class Building : MonoBehaviour
 
     private void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.T) )
+        if (isInRange && Input.GetKeyDown(KeyCode.Space) )
         {
             ClearTerrain();
         }

@@ -1,20 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cannon : MonoBehaviour
+public class JustinBuilding : MonoBehaviour
 {
     public float constructionTime = 10.0f; // 건물 건설 시간(초)
     public float constructionTimePercent = 1.0f; // 건물 건설 시간 배율(조종값)
     private float realcunstructionTime = 1.0f;
     private bool isUnderConstruction = false;
+    private bool isInRange = false;
+
     private float constructionProgress = 0.0f;
     public Slider constructionBar;
     public GameObject Slider;
+    public GameObject UpgradeButton;
     private bool isConstruction = false;
     private bool isConstructioning = false;
+    private bool JustinOneGo = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
+    public GameObject JustinBuildOnePrefab;
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            isInRange = true;
+            
 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInRange = false;
+            
+        }
+    }
+
+    private void Upgrade()
+    {
+        UpgradeButton.SetActive(true);
+    }
 
     private void Start()
     {
@@ -26,7 +54,7 @@ public class Cannon : MonoBehaviour
         {
             Slider.SetActive(false); // 초기에는 숨겨둡니다.
         }
-        else 
+        else
         {
             StartConstruction();
             float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
@@ -34,13 +62,15 @@ public class Cannon : MonoBehaviour
 
         }
         realcunstructionTime = constructionTime * constructionTimePercent;
-        
-        
-        SavePosition();
     }
 
     private void Update()
     {
+        if (isInRange && Input.GetKeyDown(KeyCode.Space))
+        {
+            Upgrade();
+        }
+
         if (isUnderConstruction)
         {
             // 건설 중인 경우 타이머를 업데이트합니다.
@@ -58,12 +88,12 @@ public class Cannon : MonoBehaviour
     }
 
     // 플레이어가 건물 트리거 영역에 들어갈 때 건설 시작
-    
+
 
     // 건설 시작
-    public  void StartConstruction()
+    public void StartConstruction()
     {
-        
+
         isUnderConstruction = true;
         Slider.SetActive(true);
         // 다른 초기화 작업 수행
@@ -85,14 +115,15 @@ public class Cannon : MonoBehaviour
         {
             // SetTargetPosition 메서드를 호출하여 좌표를 전달
             justinmove.SetHomePosition(spawnPosition);
-            
+
         }
 
         PlayerPrefs.SetInt("IsConstructioning", 0);
         PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
         PlayerPrefs.Save(); // 변경 사항을 저장
-
+        Destroy(gameObject);
+        Instantiate(JustinBuildOnePrefab, transform.position, Quaternion.identity);
 
     }
 
@@ -106,96 +137,5 @@ public class Cannon : MonoBehaviour
         PlayerPrefs.SetFloat("ConstructionProgress", constructionProgress);
         PlayerPrefs.Save();
     }
-
-    private void SavePosition()
-    {
-        Vector3 position = transform.position;
-        string key = "";
-
-        if (position.x >= 2f && position.x <= 3f)
-        {
-            key = "2.5";
-        }
-
-        else if (position.x >= 6f && position.x <= 7f)
-        {
-            key = "6.5";
-        }
-
-        else if (position.x >= 10f && position.x <= 11f)
-        {
-            key = "10.5";
-        }
-
-        else if (position.x >= 14f && position.x <= 15f)
-        {
-            key = "14.5";
-        }
-
-        else if (position.x >= 18f && position.x <= 19f)
-        {
-            key = "18.5";
-        }
-
-        else if (position.x >= 22f && position.x <= 23f)
-        {
-            key = "22.5";
-        }
-
-        else if (position.x >= 26f && position.x <= 27f)
-        {
-            key = "26.5";
-        }
-
-        else if (position.x >= 30f && position.x <= 31f)
-        {
-            key = "30.5";
-        }
-
-        else if (position.x >= 34f && position.x <= 35f)
-        {
-            key = "34.5";
-        }
-
-        else if (position.x >= 38f && position.x <= 39f)  
-        {
-            key = "38.5";
-        }
-
-        else if (position.x >= 42f && position.x <= 43f)
-        {
-            key = "42.5";
-        }
-
-        else if (position.x >= 46f && position.x <= 47f)
-        {
-            key = "46.5";
-        }
-
-        else if (position.x >= 50f && position.x <= 51f)
-        {
-            key = "50.5";
-        }
-
-        else if (position.x >= 54f && position.x <= 55f)
-        {
-            key = "54.5";
-        }
-
-        else if (position.x >= 58f && position.x <= 59f)
-        {
-            key = "58.5";
-        }
-
-        if (key != "")
-        {
-            PlayerPrefs.SetFloat($"{key}XCannon", position.x);
-            PlayerPrefs.SetFloat($"{key}YCannon", position.y);
-            PlayerPrefs.SetFloat($"{key}ZCannon", position.z);
-            PlayerPrefs.Save();
-        }
-    }
-
-
 
 }

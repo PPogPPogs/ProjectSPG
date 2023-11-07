@@ -18,28 +18,6 @@ public class Justinmove : MonoBehaviour
     private bool isConstructioning = false;
     
 
-    public void SetTargetPosition(Vector2 position)
-    {
-        targetPosition = position;
-        PlayerPrefs.SetFloat("JustinSavedTargetX", targetPosition.x); // x ÁÂÇ¥ ÀúÀå
-        PlayerPrefs.SetFloat("JustinSavedTargetY", targetPosition.y); // y ÁÂÇ¥ ÀúÀå
-        PlayerPrefs.Save();
-        isMoving = true;
-        isHomeComing = false;
-    }
-
-
-    public void SetHomePosition(Vector2 position)
-    {
-        targetPosition = position;
-        PlayerPrefs.SetFloat("JustinSavedHomeX", targetPosition.x); // x ÁÂÇ¥ ÀúÀå
-        PlayerPrefs.SetFloat("JustinSavedHomeY", targetPosition.y); // y ÁÂÇ¥ ÀúÀå
-        PlayerPrefs.Save();
-        isHomeComing = true;
-        isMoving = false;
-
-    }
-
 
     private void Start()
     {
@@ -67,6 +45,28 @@ public class Justinmove : MonoBehaviour
         {
             SetHomePosition(new Vector2(savedHomeX, savedHomeY));
         }
+    }
+
+    public void SetTargetPosition(Vector2 position)
+    {
+        targetPosition = position;
+        PlayerPrefs.SetFloat("JustinSavedTargetX", targetPosition.x); // x ÁÂÇ¥ ÀúÀå
+        PlayerPrefs.SetFloat("JustinSavedTargetY", targetPosition.y); // y ÁÂÇ¥ ÀúÀå
+        PlayerPrefs.Save();
+        isMoving = true;
+        isHomeComing = false;
+    }
+
+
+    public void SetHomePosition(Vector2 position)
+    {
+        targetPosition = position;
+        PlayerPrefs.SetFloat("JustinSavedHomeX", targetPosition.x); // x ÁÂÇ¥ ÀúÀå
+        PlayerPrefs.SetFloat("JustinSavedHomeY", targetPosition.y); // y ÁÂÇ¥ ÀúÀå
+        PlayerPrefs.Save();
+        isHomeComing = true;
+        isMoving = false;
+
     }
 
 
@@ -163,11 +163,21 @@ public class Justinmove : MonoBehaviour
         isMoving = false; // ÀÌµ¿ ÁßÀÌ ¾Æ´Ï¶ó°í Ç¥½Ã
         isHomeComing = false; // ÀÌµ¿ ÁßÀÌ ¾Æ´Ï¶ó°í Ç¥½Ã
         Cannon cannon = FindObjectOfType<Cannon>();
+        JustinBuilding justinBuilding = FindObjectOfType<JustinBuilding>();
+        GodonBuilding godonBuilding = FindObjectOfType<GodonBuilding>();
         if (cannon != null)
-        {
-            
+        { 
             cannon.StartConstruction();
-           
+        }
+
+        else if (godonBuilding  != null)
+        {
+            godonBuilding.StartConstruction();
+        }
+
+        else if(justinBuilding != null)
+        {
+            justinBuilding.StartConstruction();
         }
     }
     
