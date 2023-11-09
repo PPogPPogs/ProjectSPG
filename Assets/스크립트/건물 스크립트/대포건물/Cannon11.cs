@@ -1,48 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JustinBuilding : MonoBehaviour
+public class Cannon11 : MonoBehaviour
 {
     public float constructionTime = 10.0f; // 건물 건설 시간(초)
     public float constructionTimePercent = 1.0f; // 건물 건설 시간 배율(조종값)
     private float realcunstructionTime = 1.0f;
     private bool isUnderConstruction = false;
-    private bool isInRange = false;
-
     private float constructionProgress = 0.0f;
     public Slider constructionBar;
     public GameObject Slider;
-    public GameObject UpgradeButton;
     private bool isConstruction = false;
     private bool isConstructioning = false;
-    private bool JustinOneGo = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
-    public GameObject JustinBuildOnePrefab;
+    public GameObject Cannon11oj;
+    public GameObject Cannon12oj;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-        if (other.CompareTag("Player"))
-        {
-            isInRange = true;
-            
 
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isInRange = false;
-            
-        }
-    }
-
-    private void Upgrade()
-    {
-        UpgradeButton.SetActive(true);
-    }
 
     private void Start()
     {
@@ -62,15 +37,13 @@ public class JustinBuilding : MonoBehaviour
 
         }
         realcunstructionTime = constructionTime * constructionTimePercent;
+
+
+
     }
 
     private void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.Space))
-        {
-            Upgrade();
-        }
-
         if (isUnderConstruction)
         {
             // 건설 중인 경우 타이머를 업데이트합니다.
@@ -122,9 +95,12 @@ public class JustinBuilding : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
         PlayerPrefs.Save(); // 변경 사항을 저장
-        Destroy(gameObject);
-        Instantiate(JustinBuildOnePrefab, transform.position, Quaternion.identity);
-
+        PlayerPrefs.SetInt("Cannon11Active", 0);
+        PlayerPrefs.Save();
+        PlayerPrefs.SetInt("Cannon12Active", 1);
+        PlayerPrefs.Save();
+        Cannon12oj.SetActive(true);
+        Cannon11oj.SetActive(false);
     }
 
     private void UpdateConstructionUI()
@@ -137,5 +113,8 @@ public class JustinBuilding : MonoBehaviour
         PlayerPrefs.SetFloat("ConstructionProgress", constructionProgress);
         PlayerPrefs.Save();
     }
+
+
+
 
 }

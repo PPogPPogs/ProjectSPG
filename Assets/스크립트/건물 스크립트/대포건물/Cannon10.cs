@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GodonBuilding : MonoBehaviour
+public class Cannon10 : MonoBehaviour
 {
     public float constructionTime = 10.0f; // 건물 건설 시간(초)
     public float constructionTimePercent = 1.0f; // 건물 건설 시간 배율(조종값)
@@ -13,6 +13,9 @@ public class GodonBuilding : MonoBehaviour
     private bool isConstruction = false;
     private bool isConstructioning = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
+    public GameObject Cannon11oj;
+    public GameObject Cannon10oj;
+    
 
 
 
@@ -36,7 +39,7 @@ public class GodonBuilding : MonoBehaviour
         realcunstructionTime = constructionTime * constructionTimePercent;
         
         
-        SavePosition();
+        
     }
 
     private void Update()
@@ -92,8 +95,12 @@ public class GodonBuilding : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
         PlayerPrefs.Save(); // 변경 사항을 저장
-
-
+        PlayerPrefs.SetInt("Cannon10Active", 0);
+        PlayerPrefs.Save();
+        PlayerPrefs.SetInt("Cannon11Active", 1);
+        PlayerPrefs.Save();
+        Cannon11oj.SetActive(true);
+        Cannon10oj.SetActive(false);
     }
 
     private void UpdateConstructionUI()
@@ -107,95 +114,7 @@ public class GodonBuilding : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void SavePosition()
-    {
-        Vector3 position = transform.position;
-        string key = "";
-
-        if (position.x >= 2f && position.x <= 3f)
-        {
-            key = "2.5";
-        }
-
-        else if (position.x >= 6f && position.x <= 7f)
-        {
-            key = "6.5";
-        }
-
-        else if (position.x >= 10f && position.x <= 11f)
-        {
-            key = "10.5";
-        }
-
-        else if (position.x >= 14f && position.x <= 15f)
-        {
-            key = "14.5";
-        }
-
-        else if (position.x >= 18f && position.x <= 19f)
-        {
-            key = "18.5";
-        }
-
-        else if (position.x >= 22f && position.x <= 23f)
-        {
-            key = "22.5";
-        }
-
-        else if (position.x >= 26f && position.x <= 27f)
-        {
-            key = "26.5";
-        }
-
-        else if (position.x >= 30f && position.x <= 31f)
-        {
-            key = "30.5";
-        }
-
-        else if (position.x >= 34f && position.x <= 35f)
-        {
-            key = "34.5";
-        }
-
-        else if (position.x >= 38f && position.x <= 39f)
-        {
-            key = "38.5";
-        }
-
-        else if (position.x >= 42f && position.x <= 43f)
-        {
-            key = "42.5";
-        }
-
-        else if (position.x >= 46f && position.x <= 47f)
-        {
-            key = "46.5";
-        }
-
-        else if (position.x >= 50f && position.x <= 51f)
-        {
-            key = "50.5";
-        }
-
-        else if (position.x >= 54f && position.x <= 55f)
-        {
-            key = "54.5";
-        }
-
-        else if (position.x >= 58f && position.x <= 59f)
-        {
-            key = "58.5";
-        }
-
-        if (key != "")
-        {
-            PlayerPrefs.SetFloat($"{key}XGodonBuilding", position.x);
-            PlayerPrefs.SetFloat($"{key}YGodonBuilding", position.y);
-            PlayerPrefs.SetFloat($"{key}ZGodonBuilding", position.z);
-            PlayerPrefs.Save();
-        }
-    }
-
+   
 
 
 }

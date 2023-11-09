@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JustinBuildingOne : MonoBehaviour
+public class GodonBuild10 : MonoBehaviour
 {
     public float constructionTime = 10.0f; // 건물 건설 시간(초)
     public float constructionTimePercent = 1.0f; // 건물 건설 시간 배율(조종값)
@@ -13,12 +13,15 @@ public class JustinBuildingOne : MonoBehaviour
     private bool isConstruction = false;
     private bool isConstructioning = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
+    public GameObject GodonBuild11oj;
+    public GameObject GodonBuild10oj;
+   
 
 
+    
 
     private void Start()
     {
-        SavePosition();
         isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
         isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
         // 건설 진행 상태를 나타낼 UI 또는 게임 오브젝트를 가져옵니다.
@@ -37,7 +40,7 @@ public class JustinBuildingOne : MonoBehaviour
         realcunstructionTime = constructionTime * constructionTimePercent;
 
 
-        
+
     }
 
     private void Update()
@@ -93,8 +96,12 @@ public class JustinBuildingOne : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
         PlayerPrefs.Save(); // 변경 사항을 저장
-
-
+        PlayerPrefs.SetInt("GodonBuild10Active", 0);
+        PlayerPrefs.Save();
+        PlayerPrefs.SetInt("GodonBuild11Active", 1);
+        PlayerPrefs.Save();
+        GodonBuild11oj.SetActive(true);
+        GodonBuild10oj.SetActive(false);
     }
 
     private void UpdateConstructionUI()
@@ -108,16 +115,6 @@ public class JustinBuildingOne : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void SavePosition()
-    {
-        Vector3 position = transform.position;
-        
-            PlayerPrefs.SetFloat("XJustinBuilding", position.x);
-            PlayerPrefs.SetFloat("YJustinBuilding", position.y);
-            PlayerPrefs.SetFloat("ZJustinBuilding", position.z);
-            PlayerPrefs.Save();
-        Debug.Log("저장");
-    }
 
 
 

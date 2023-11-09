@@ -162,23 +162,46 @@ public class Justinmove : MonoBehaviour
         animator.SetTrigger("Building");
         isMoving = false; // 이동 중이 아니라고 표시
         isHomeComing = false; // 이동 중이 아니라고 표시
-        Cannon cannon = FindObjectOfType<Cannon>();
-        JustinBuilding justinBuilding = FindObjectOfType<JustinBuilding>();
-        GodonBuilding godonBuilding = FindObjectOfType<GodonBuilding>();
-        if (cannon != null)
+        Cannon10 cannon10 = FindObjectOfType<Cannon10>();
+        Cannon11 cannon11 = FindObjectOfType<Cannon11>();
+        JustinBuilding0 justinBuilding0 = FindObjectOfType<JustinBuilding0>();
+        JustinBuilding1 justinBuilding1 = FindObjectOfType<JustinBuilding1>();
+        GodonBuild10 godonBuild10 = FindObjectOfType<GodonBuild10>();
+        GodonBuild11 godonBuild11 = FindObjectOfType<GodonBuild11>();
+        if (cannon10 != null)
         { 
-            cannon.StartConstruction();
+            cannon10.StartConstruction();
         }
 
-        else if (godonBuilding  != null)
+        else if (cannon11 != null)
         {
-            godonBuilding.StartConstruction();
+            cannon11.StartConstruction();
+        }
+        // Cannon
+
+        else if (godonBuild10 != null)
+        {
+            godonBuild10.StartConstruction();
         }
 
-        else if(justinBuilding != null)
+        else if (godonBuild11 != null)
         {
-            justinBuilding.StartConstruction();
+            godonBuild11.StartConstruction();
         }
+        // GodonBuild
+
+        else if(justinBuilding0 != null)
+        {
+            justinBuilding0.StartConstruction();
+        }
+
+        else if (justinBuilding1 != null)
+        {
+            justinBuilding1.StartConstruction();
+        }
+        // JustinBuild
+
+     
     }
     
     private Vector3 JustinPosition()

@@ -109,14 +109,14 @@ public class Longerunit : MonoBehaviour
         if (calendarManager != null)
         {
             int currentHour = calendarManager.GetHour();
-            if (currentHour >= 7)
+            if (currentHour >= 17)
             {
 
                 Movewall();
 
 
             }
-            else if( currentHour <= 7)
+            else if( currentHour <= 17)
             {
                 PerformRandomAction();
 
