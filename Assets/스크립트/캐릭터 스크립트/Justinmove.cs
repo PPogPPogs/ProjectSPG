@@ -21,6 +21,7 @@ public class Justinmove : MonoBehaviour
 
     private void Start()
     {
+        
         animator = GetComponent<Animator>();
         Vector3 position = JustinPosition();
         transform.position = position;
@@ -162,31 +163,28 @@ public class Justinmove : MonoBehaviour
         animator.SetTrigger("Building");
         isMoving = false; // 이동 중이 아니라고 표시
         isHomeComing = false; // 이동 중이 아니라고 표시
-        Cannon10 cannon10 = FindObjectOfType<Cannon10>();
-        Cannon11 cannon11 = FindObjectOfType<Cannon11>();
+        Cannon0 cannon0 = FindObjectOfType<Cannon0>();
+      
         JustinBuilding0 justinBuilding0 = FindObjectOfType<JustinBuilding0>();
         JustinBuilding1 justinBuilding1 = FindObjectOfType<JustinBuilding1>();
-        GodonBuild10 godonBuild10 = FindObjectOfType<GodonBuild10>();
-        GodonBuild11 godonBuild11 = FindObjectOfType<GodonBuild11>();
-        if (cannon10 != null)
+        GodonBuild0 godonBuild0 = FindObjectOfType<GodonBuild0>();
+        GodonBuild1 godonBuild1 = FindObjectOfType<GodonBuild1>();
+        if (cannon0 != null)
         { 
-            cannon10.StartConstruction();
+            cannon0.StartConstruction();
         }
 
-        else if (cannon11 != null)
-        {
-            cannon11.StartConstruction();
-        }
+        
         // Cannon
 
-        else if (godonBuild10 != null)
+        else if (godonBuild0 != null)
         {
-            godonBuild10.StartConstruction();
+            godonBuild0.StartConstruction();
         }
 
-        else if (godonBuild11 != null)
+        else if (godonBuild1 != null)
         {
-            godonBuild11.StartConstruction();
+            godonBuild1.StartConstruction();
         }
         // GodonBuild
 
@@ -206,7 +204,7 @@ public class Justinmove : MonoBehaviour
     
     private Vector3 JustinPosition()
     {
-        float x = PlayerPrefs.GetFloat(JustinX, -15.0f); // 0f는 기본 위치
+        float x = PlayerPrefs.GetFloat(JustinX, -27.0f); // 0f는 기본 위치
         float y = PlayerPrefs.GetFloat(JustinY, -0.63f);
         float z = PlayerPrefs.GetFloat(JustinZ, 0f);
         return new Vector3(x, y, z);

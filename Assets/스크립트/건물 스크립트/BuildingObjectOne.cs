@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BuildingObjectOne : MonoBehaviour
 {
-    public GameObject CannonPrefab;
-    public GameObject GodonPrefab;
+    public GameObject Cannon0Prefab;
+    public GameObject Cannon1Prefab;
+    public GameObject Godon0Prefab;
+    public GameObject Godon1Prefab;
     public GameObject LionPrefab;
     public GameObject DooPrefab;
     public GameObject PandaPrefab;
-    public GameObject JustinBuildingOnePrefab;
-    public GameObject JustinBuildingPrefab;
+    public GameObject JustinBuild0;
+    public GameObject JustinBuild1;
+
     private bool justinOneGo = false;
 
     void Start()
@@ -18,45 +21,58 @@ public class BuildingObjectOne : MonoBehaviour
         
         justinOneGo = PlayerPrefs.GetInt("JustinOneGo", 0) == 1;
         
-        float CannonX = PlayerPrefs.GetFloat($"{2.5}XCannon", 0f); // X 좌표를 불러옵니다.
-        float CannonY = PlayerPrefs.GetFloat($"{2.5}YCannon", 0f); // Y 좌표를 불러옵니다.
-        float CannonZ = PlayerPrefs.GetFloat($"{2.5}ZCannon", 0f); // Z 좌표를 불러옵니다.
+        float Cannon0X = PlayerPrefs.GetFloat($"{2.5}XCannon0", 0f); // X 좌표를 불러옵니다.
+        float Cannon0Y = PlayerPrefs.GetFloat($"{2.5}YCannon0", 0f); // Y 좌표를 불러옵니다.
+        float Cannon0Z = PlayerPrefs.GetFloat($"{2.5}ZCannon0", 0f); // Z 좌표를 불러옵니다.
 
         // 좌표가 저장되어 있는지 확인
-        if (CannonX != 0f || CannonY != 0f || CannonZ != 0f)
+        if (Cannon0X != 0f || Cannon0Y != 0f || Cannon0Z != 0f)
         {
             // 프리팹을 인스턴스화하고 좌표 설정
-            GameObject CannonObject = Instantiate(CannonPrefab, new Vector3(CannonX, CannonY, CannonZ), Quaternion.identity);
+            GameObject Cannon0Object = Instantiate(Cannon0Prefab, new Vector3(Cannon0X, Cannon0Y, Cannon0Z), Quaternion.identity);
+
+        }
+
+        float Cannon1X = PlayerPrefs.GetFloat($"{2.5}XCannon1", 0f); // X 좌표를 불러옵니다.
+        float Cannon1Y = PlayerPrefs.GetFloat($"{2.5}YCannon1", 0f); // Y 좌표를 불러옵니다.
+        float Cannon1Z = PlayerPrefs.GetFloat($"{2.5}ZCannon1", 0f); // Z 좌표를 불러옵니다.
+
+        // 좌표가 저장되어 있는지 확인
+        if (Cannon1X != 0f || Cannon1Y != 0f || Cannon1Z != 0f)
+        {
+            // 프리팹을 인스턴스화하고 좌표 설정
+            GameObject Cannon1Object = Instantiate(Cannon1Prefab, new Vector3(Cannon1X, Cannon1Y, Cannon1Z), Quaternion.identity);
         }
         //Connon 끝
 
-        float JustinX = PlayerPrefs.GetFloat("XJustinBuilding", 0f); // X 좌표를 불러옵니다.
-        float JustinY = PlayerPrefs.GetFloat("YJustinBuilding", 0f); // Y 좌표를 불러옵니다.
-        float JustinZ = PlayerPrefs.GetFloat("ZJustinBuilding", 0f); // Z 좌표를 불러옵니다.
+        int justinBuild0Active = PlayerPrefs.GetInt("JustinBuild0Active", 1); // 기본값은 활성화 (1)
+        JustinBuild0.SetActive(justinBuild0Active == 1);
 
-        // 좌표가 저장되어 있는지 확인
-        if (JustinX != 0f || JustinY != 0f || JustinZ != 0f)
-        {
-            GameObject JustinOneObject = Instantiate(JustinBuildingOnePrefab, new Vector3(JustinX, JustinY, JustinZ), Quaternion.identity);
-            Debug.Log("불러옴");
-        }
-        else
-        {
-            // 저장된 좌표가 없을 때 특정 좌표로 프리팹을 생성
-            Vector3 defaultPosition = new Vector3(-16f, -0.6f, 0f);
-            GameObject JustinOneObject = Instantiate(JustinBuildingPrefab, defaultPosition, Quaternion.identity);
-            Debug.Log("저장된 좌표가 없어 특정 좌표로 생성됨");
-        }
+        int justinBuild1Active = PlayerPrefs.GetInt("JustinBuild1Active", 0); // 기본값은 활성화 (0)
+        JustinBuild1.SetActive(justinBuild1Active == 1);
+
         //Justin 끝
-        float GodonX = PlayerPrefs.GetFloat($"{2.5}XGodonBuilding", 0f); // X 좌표를 불러옵니다.
-        float GodonY = PlayerPrefs.GetFloat($"{2.5}YGodonBuilding", 0f); // Y 좌표를 불러옵니다.
-        float GodonZ = PlayerPrefs.GetFloat($"{2.5}ZGodonBuilding", 0f); // Z 좌표를 불러옵니다.
+
+        float Godon0X = PlayerPrefs.GetFloat($"{2.5}XGodonBuild0", 0f); // X 좌표를 불러옵니다.
+        float Godon0Y = PlayerPrefs.GetFloat($"{2.5}YGodonBuild0", 0f); // Y 좌표를 불러옵니다.
+        float Godon0Z = PlayerPrefs.GetFloat($"{2.5}ZGodonBuild0", 0f); // Z 좌표를 불러옵니다.
 
         // 좌표가 저장되어 있는지 확인
-        if (GodonX != 0f || GodonY != 0f || GodonZ != 0f)
+        if (Godon0X != 0f || Godon0Y != 0f || Godon0Z != 0f)
         {
             // 프리팹을 인스턴스화하고 좌표 설정
-            GameObject GodonObject = Instantiate(GodonPrefab, new Vector3(GodonX, GodonY, GodonZ), Quaternion.identity);
+            GameObject Godon0Object = Instantiate(Godon0Prefab, new Vector3(Godon0X, Godon0Y, Godon0Z), Quaternion.identity);
+        }
+
+        float Godon1X = PlayerPrefs.GetFloat($"{2.5}XGodonBuild1", 0f); // X 좌표를 불러옵니다.
+        float Godon1Y = PlayerPrefs.GetFloat($"{2.5}YGodonBuild1", 0f); // Y 좌표를 불러옵니다.
+        float Godon1Z = PlayerPrefs.GetFloat($"{2.5}ZGodonBuild1", 0f); // Z 좌표를 불러옵니다.
+
+        // 좌표가 저장되어 있는지 확인
+        if (Godon1X != 0f || Godon1Y != 0f || Godon1Z != 0f)
+        {
+            // 프리팹을 인스턴스화하고 좌표 설정
+            GameObject Godon1Object = Instantiate(Godon1Prefab, new Vector3(Godon1X, Godon1Y, Godon1Z), Quaternion.identity);
         }
         //Godon 끝
 

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Cannon0InstallButton : MonoBehaviour
 {
-    public GameObject Cannon10;
+    public GameObject Cannon0Prefab;
+    public Vector3 Cannon0spawnPosition;
     public Vector2 spawnPosition = new Vector2(6f, -0.6f); // 2D 좌표 설정(필요)
     public GameObject objectToDisable;
     public GameObject BuildTextToDisable;
@@ -22,9 +23,9 @@ public class Cannon0InstallButton : MonoBehaviour
             // 지정된 2D 좌표에서 오브젝트를 생성합니다.
            
             BuildTextToDisable.SetActive(false);
-            Cannon10.SetActive(true);
-            PlayerPrefs.SetInt("Cannon10Active", 1);
-            PlayerPrefs.Save();
+            GameObject Cannon0 = Instantiate(Cannon0Prefab, Cannon0spawnPosition, Quaternion.identity);
+
+
 
             // Justinmove 스크립트를 찾음
             Justinmove justinmove = FindObjectOfType<Justinmove>();

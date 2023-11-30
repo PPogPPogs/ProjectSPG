@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Longerunit : MonoBehaviour
+public class Godon : MonoBehaviour
 {
     public float detectionRange = 10.0f; // 플레이어 감지 범위
     private Transform monster; // 플레이어의 Transform
@@ -29,20 +29,27 @@ public class Longerunit : MonoBehaviour
     private bool isMoving = false;
     private Vector3 TargetPosition;
 
+    private static List<Godon> godonList = new List<Godon>();
+
+   
+
     private void Start()
     {
-        
+        godonList.Add(this);
         animator = GetComponent<Animator>();
-        Vector3 position = LoadGoPosition();
-        transform.position = position;
+    
         Callmovewall();
-
+        Debug.Log("godonList Count: " + godonList.Count);
+    }
+    public static List<Godon> GetGodonList()
+    {
+        return godonList;
     }
 
 
     private void Update()
     {
-        SaveGoPosition(transform.position);
+        SaveGodonPosition(transform.position);
 
         if (monster == null)
         {
@@ -655,22 +662,31 @@ public class Longerunit : MonoBehaviour
         PerformRandomAction();
     }
 
-    public void SaveGoPosition(Vector3 position)
+
+    private void Destroy()
     {
-
-
-        PlayerPrefs.SetFloat(GodonX, position.x);
-        PlayerPrefs.SetFloat(GodonY, position.y);
-        PlayerPrefs.SetFloat(GodonZ, position.z);
-        PlayerPrefs.Save();
-
+        // Remove the monster from the list upon destruction
+        godonList.Remove(this);
     }
-    public Vector3 LoadGoPosition()
+
+    private void SaveGodonPosition(Vector3 position)
     {
-        float x = PlayerPrefs.GetFloat(GodonX, 0f); // 0f는 기본 위치
-        float y = PlayerPrefs.GetFloat(GodonY, -0.63f);
-        float z = PlayerPrefs.GetFloat(GodonZ, 0f);
+        string godonPosition = "GodonPosition_" + GetInstanceID(); // Unique key for each monster
+        PlayerPrefs.SetFloat(godonPosition + "_X", position.x);
+        PlayerPrefs.SetFloat(godonPosition + "_Y", position.y);
+        PlayerPrefs.SetFloat(godonPosition + "_Z", position.z);
+        PlayerPrefs.Save();
+    }
+
+    public Vector3 LoadGodonPosition()
+    {
+        string godonPosition = "GodonPosition_" + GetInstanceID();
+        float x = PlayerPrefs.GetFloat(godonPosition + "_X", 0f);
+        float y = PlayerPrefs.GetFloat(godonPosition + "_Y", -0.63f);
+        float z = PlayerPrefs.GetFloat(godonPosition + "_Z", 0f);
         return new Vector3(x, y, z);
     }
+
+    
 
 }

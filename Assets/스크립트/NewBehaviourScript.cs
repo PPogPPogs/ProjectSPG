@@ -2,16 +2,10 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnDeleteAllDataButton()
     {
-
+        // PlayerPrefs에 저장된 모든 데이터 삭제
         PlayerPrefs.DeleteAll();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("삭제완료");
     }
 }

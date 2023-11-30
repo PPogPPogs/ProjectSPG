@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class GodonBuild0InstallButton : MonoBehaviour
 {
-    public GameObject GodonBuild10;
+    public GameObject GodonBuild0Prefab;
+    public Vector3 GodonBuild0spawnPosition;
     public Vector2 spawnPosition = new Vector2(6f, -0.6f); // 2D 좌표 설정(필요)
     public GameObject objectToDisable;
     public GameObject BuildTextToDisable;
@@ -22,9 +23,9 @@ public class GodonBuild0InstallButton : MonoBehaviour
             // 지정된 2D 좌표에서 오브젝트를 생성합니다.
 
             BuildTextToDisable.SetActive(false);
-           GodonBuild10.SetActive(true);
-            PlayerPrefs.SetInt("GodonBuild10Active", 1);
-            PlayerPrefs.Save();
+            GameObject GodonBuild0 = Instantiate(GodonBuild0Prefab, GodonBuild0spawnPosition, Quaternion.identity);
+
+
 
             // Justinmove 스크립트를 찾음
             Justinmove justinmove = FindObjectOfType<Justinmove>();

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2257602846213739001}
   - component: {fileID: 8336240616256309514}
   m_Layer: 0
-  m_Name: gordon
-  m_TagString: Untagged
+  m_Name: godon
+  m_TagString: Godon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 5
-  targetPosition: {fileID: 0}
   moveSpeed: 2
   minAttackCooldown: 2
   maxAttackCooldown: 5
