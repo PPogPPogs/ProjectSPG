@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d55ffcc33abff647a640fde6d4b765a
+guid: a27a5a6dacb51c342a386ecd7b9ab882
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,11 +106,37 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: t2 attack_0
+      name: monster 1-3 attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18a03a0e583766a43bf57319a69a5052
-      internalID: 797670517
+      spriteID: af020281fdbf1d04daba077633945f26
+      internalID: 1847642471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_1
+      name: monster 1-3 attack_1
       rect:
         serializedVersion: 2
         x: 42
@@ -145,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 380f99c9ecde8e745bcc15bc6559ca3f
-      internalID: -1979826378
+      spriteID: e3db2b9412d82b74b9b745098876498d
+      internalID: 1955566536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_2
+      name: monster 1-3 attack_2
       rect:
         serializedVersion: 2
         x: 84
@@ -166,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25e657d32ce6cb64cb5b0371e21c4d85
-      internalID: -1381995574
+      spriteID: 9cd433d0e4041d648aa00d536744f9e0
+      internalID: -1708996259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_3
+      name: monster 1-3 attack_3
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9016ce18bf5113b4e9da5063df8c5457
-      internalID: -1549760523
+      spriteID: 1878cb42d8c1a724da44549fbe15fa3b
+      internalID: -635793630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_4
+      name: monster 1-3 attack_4
       rect:
         serializedVersion: 2
         x: 42
@@ -208,8 +234,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 458684461f6cc984892b4b56f34d0d42
-      internalID: -1924572758
+      spriteID: 19ccc565b4ba41e4986d959f8d8d7adb
+      internalID: -24281997
       vertices: []
       indices: 
       edges: []
@@ -225,11 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      t2 attack_0: 797670517
-      t2 attack_1: -1979826378
-      t2 attack_2: -1381995574
-      t2 attack_3: -1549760523
-      t2 attack_4: -1924572758
+      monster 1-3 attack_0: 1847642471
+      monster 1-3 attack_1: 1955566536
+      monster 1-3 attack_2: -1708996259
+      monster 1-3 attack_3: -635793630
+      monster 1-3 attack_4: -24281997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

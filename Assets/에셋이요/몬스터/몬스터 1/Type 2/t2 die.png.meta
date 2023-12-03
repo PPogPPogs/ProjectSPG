@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d55ffcc33abff647a640fde6d4b765a
+guid: 09f06e6e3ecd9c0408f5440b333a5eb3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: t2 attack_0
+      name: t2 die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7a45dde5a5498409b847a91f767293
+      internalID: -641754295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2 die_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 84
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b05fa2afe9ec8439bc9f1c83337676
+      internalID: 1524741376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2 die_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 84
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0785b3cdc8c13e49a6f6af26db808b0
+      internalID: 327815412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2 die_3
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18a03a0e583766a43bf57319a69a5052
-      internalID: 797670517
+      spriteID: 0975eb49c5cfc5343a439353a7f8169a
+      internalID: -937985335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_1
+      name: t2 die_4
       rect:
         serializedVersion: 2
         x: 42
@@ -145,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 380f99c9ecde8e745bcc15bc6559ca3f
-      internalID: -1979826378
+      spriteID: 6ef14ca999659414f923e24775d31175
+      internalID: 739116435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_2
+      name: t2 die_5
       rect:
         serializedVersion: 2
         x: 84
@@ -166,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25e657d32ce6cb64cb5b0371e21c4d85
-      internalID: -1381995574
+      spriteID: 874f80450baa8f646b48872119ebd38d
+      internalID: -1577868617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_3
+      name: t2 die_6
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9016ce18bf5113b4e9da5063df8c5457
-      internalID: -1549760523
+      spriteID: 1976bcb13593f7b4f9d29b2e3832942b
+      internalID: 1266984598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: t2 attack_4
+      name: t2 die_7
       rect:
         serializedVersion: 2
         x: 42
@@ -208,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 458684461f6cc984892b4b56f34d0d42
-      internalID: -1924572758
+      spriteID: 9c3c7f7e922e98c4d8636e66a95075fc
+      internalID: -1897881353
       vertices: []
       indices: 
       edges: []
@@ -225,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      t2 attack_0: 797670517
-      t2 attack_1: -1979826378
-      t2 attack_2: -1381995574
-      t2 attack_3: -1549760523
-      t2 attack_4: -1924572758
+      t2 die_0: -641754295
+      t2 die_1: 1524741376
+      t2 die_2: 327815412
+      t2 die_3: -937985335
+      t2 die_4: 739116435
+      t2 die_5: -1577868617
+      t2 die_6: 1266984598
+      t2 die_7: -1897881353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

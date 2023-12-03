@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 38071f959a50682449b6bcd41a9612bd
+guid: c33cf359e95634b4b92b2f82d503675d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,37 +106,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monster 1-2 walk_0
+      name: t2 walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60d4248ba01a1274584bfb35074c4c9c
-      internalID: 579648973
+      spriteID: c325337a3deda204ea0666c1da89a29c
+      internalID: -390627468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster 1-2 walk_1
+      name: t2 walk_1
       rect:
         serializedVersion: 2
         x: 42
@@ -171,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 562cb9ad3423f714d89d1b706c95471c
-      internalID: -113846323
+      spriteID: 0c73ee72b15492a4787cd33ca9c4582c
+      internalID: -943448926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster 1-2 walk_2
+      name: t2 walk_2
       rect:
         serializedVersion: 2
         x: 0
@@ -192,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d69a3473b8dc084b8e0b007d933b39c
-      internalID: 1789551111
+      spriteID: 862b79be7fb12ca45accf96cfd916d89
+      internalID: -1770277567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster 1-2 walk_3
+      name: t2 walk_3
       rect:
         serializedVersion: 2
         x: 42
@@ -213,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb53322c9a368c041b5a4f02c4d3c45a
-      internalID: -1986277137
+      spriteID: b97282a125b3d7143a914ca5a2cdd79b
+      internalID: -1932348632
       vertices: []
       indices: 
       edges: []
@@ -230,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      monster 1-2 walk_0: 579648973
-      monster 1-2 walk_1: -113846323
-      monster 1-2 walk_2: 1789551111
-      monster 1-2 walk_3: -1986277137
+      t2 walk_0: -390627468
+      t2 walk_1: -943448926
+      t2 walk_2: -1770277567
+      t2 walk_3: -1932348632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
