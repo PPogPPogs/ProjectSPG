@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1871478209
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 579648973, guid: 38071f959a50682449b6bcd41a9612bd, type: 3}
+  m_Sprite: {fileID: -390627468, guid: c33cf359e95634b4b92b2f82d503675d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -167,5 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193672169d9984c478c616db0b4cda99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  minMoveSpeed: 1
+  maxMoveSpeed: 2
   targetTag: Castle

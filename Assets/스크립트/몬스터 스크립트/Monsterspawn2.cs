@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class MonsterSpawn2 : MonoBehaviour
 {
     // 몬스터 프리팹 및 스폰 위치 설정
@@ -11,7 +11,7 @@ public class MonsterSpawn2 : MonoBehaviour
     private float spawnDelay = 10f; // 몬스터 생성 대기 시간
     private float timer = 0f;
     private bool monstersSpawned = false;
-
+    private bool monsterSSpawned = false;
     private bool isonemonster = true;
     private bool istwomonster = false;
     private bool isthreemonster = false;
@@ -50,20 +50,56 @@ public class MonsterSpawn2 : MonoBehaviour
 
     private void Update()
     {
-        if (playerInsideTrigger)
+        CalendarManager calendarManager = FindObjectOfType<CalendarManager>();
+        if (calendarManager != null)
         {
-            timer += Time.deltaTime;
-
-            if (timer >= spawnDelay)
+            int currentHour = calendarManager.GetHour();
+            int currentDay = calendarManager.GetDay();
+            if (currentDay == 26 && currentHour == 19 && !monsterSSpawned)
             {
-                SpawnMonsters();
-                timer = 0f;
-                monstersSpawned = true; // 몬스터가 한 번만 생성되도록 플래그 설정
+                StartCoroutine(SpawnMonstersWithDelay(3));
+
+                monsterSSpawned = true;
+
             }
+
+            else if (currentDay == 27 && currentHour == 7 && !monsterSSpawned)
+            {
+                FirstMonsterDead();
+            }
+
+            else if (currentDay == 27 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(3));
+                monsterSSpawned = true;
+            }
+
+            else if (currentDay == 28 && currentHour == 7 && !monsterSSpawned)
+            {
+                SecondMonsterDead();
+            }
+
+            else if (currentDay == 28 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(3));
+                monsterSSpawned = true;
+            }
+
+            else if (currentDay == 29 && currentHour == 7 && !monsterSSpawned)
+            {
+                ThirdMonsterDead();
+            }
+
+            if (currentHour == 19)
+            {
+                monsterSSpawned = false;
+            }
+
+
         }
     }
 
-    public void FirstMonsterDead()
+        public void FirstMonsterDead()
     {
         isonemonster = false;
         istwomonster = true;
@@ -88,34 +124,52 @@ public class MonsterSpawn2 : MonoBehaviour
     public void ThirdMonsterDead()
     {
         isthreemonster = false;
-
         // 몬스터 상태 변경 후 저장
         PlayerPrefs.SetInt("IsThreeMonster", 0);
         PlayerPrefs.Save();
+        PlayerPrefs.SetInt("TwoClear", 1);
+        PlayerPrefs.Save();
+        // 모든 OneClearLand 스크립트를 가진 오브젝트 찾기
+        TwoClearLand[] twoClearLands = FindObjectsOfType<TwoClearLand>();
+
+        // 모든 OneClearLand 오브젝트에 대해 메서드 호출
+        foreach (TwoClearLand twoClearLand in twoClearLands)
+        {
+            twoClearLand.ChangeSprite();
+        }
     }
 
-    private void SpawnMonsters()
+    private IEnumerator SpawnMonstersWithDelay(int spawnCount)
     {
-        if (isonemonster)
+        int count = 0; // 생성된 몬스터 수
+
+        while (count < spawnCount)
         {
-            foreach (Transform spawnPoint in spawnPoints)
+            if (isonemonster)
             {
-                Instantiate(onemonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(onemonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
-        }
-        else if (istwomonster && !isonemonster)
-        {
-            foreach (Transform spawnPoint in spawnPoints)
+            else if (istwomonster && !isonemonster)
             {
-                Instantiate(twomonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(twomonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
-        }
-        else if (isthreemonster && !istwomonster && !isonemonster)
-        {
-            foreach (Transform spawnPoint in spawnPoints)
+            else if (isthreemonster && !istwomonster && !isonemonster)
             {
-                Instantiate(threemonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                foreach (Transform spawnPoint in spawnPoints)
+                {
+                    Instantiate(threemonsterPrefab, spawnPoint.position, spawnPoint.rotation);
+                    count++; // 몬스터 생성 수 증가
+                }
             }
+            yield return new WaitForSeconds(Random.Range(5f, 7f));
         }
     }
 }

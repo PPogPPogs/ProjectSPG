@@ -254,6 +254,9 @@ MonoBehaviour:
   spawnPosition: {x: -27, y: -0.6}
   Cannon1Prefab: {fileID: 1454543025863713566}
   Cannon2Prefab: {fileID: 0}
+  arrowPrefab: {fileID: 7100377136803816120, guid: 1dafed8cb7df9ad4eb7a8f6536852f31, type: 3}
+  gravity: 2.6
+  detectionRange: 10
 --- !u!1 &2286525034099000393
 GameObject:
   m_ObjectHideFlags: 0

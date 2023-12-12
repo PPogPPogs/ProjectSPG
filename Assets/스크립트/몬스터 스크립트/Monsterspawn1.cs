@@ -49,7 +49,7 @@ public class MonsterSpawn1 : MonoBehaviour
         isfirstmonster = PlayerPrefs.GetInt("IsFirstMonster", 1) == 1;
         issecondmonster = PlayerPrefs.GetInt("IsSecondMonster", 0) == 1;
         isthirdmonster = PlayerPrefs.GetInt("IsThirdMonster", 0) == 1;
-       
+      
 
        
 
@@ -61,16 +61,48 @@ public class MonsterSpawn1 : MonoBehaviour
         if (calendarManager != null)
         {
             int currentHour = calendarManager.GetHour();
-            if (currentHour == 18 && !monsterSSpawned )
+            int currentDay = calendarManager.GetDay();
+            if (currentDay == 23 && currentHour == 7 && !monsterSSpawned )
             {
-                StartCoroutine(SpawnMonstersWithDelay(30));
+                StartCoroutine(SpawnMonstersWithDelay(3));
 
                 monsterSSpawned = true;
+                
             }
-            else if (currentHour == 19)
+
+            else if (currentDay == 24 && currentHour == 7 && !monsterSSpawned)
+            {
+                FirstMonsterDead();
+            }
+
+            else if(currentDay == 24 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(3));
+                monsterSSpawned = true;
+            }
+
+            else if (currentDay == 25 && currentHour == 7 && !monsterSSpawned)
+            {
+                SecondMonsterDead();
+            }
+
+            else if (currentDay == 25 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(3));
+                monsterSSpawned = true;
+            }
+
+            else if (currentDay == 26 && currentHour == 7 && !monsterSSpawned)
+            {
+                ThirdMonsterDead();   
+            }
+            
+            if (currentHour == 19)
             {
                 monsterSSpawned = false;
             }
+
+            
         }
 
     }
@@ -100,10 +132,19 @@ public class MonsterSpawn1 : MonoBehaviour
     public void ThirdMonsterDead()
     {
         isthirdmonster = false;
-
         // 몬스터 상태 변경 후 저장
         PlayerPrefs.SetInt("IsThirdMonster", 0);
         PlayerPrefs.Save();
+        PlayerPrefs.SetInt("OneClear", 1);
+        PlayerPrefs.Save();
+        // 모든 OneClearLand 스크립트를 가진 오브젝트 찾기
+        OneClearLand[] oneClearLands = FindObjectsOfType<OneClearLand>();
+
+        // 모든 OneClearLand 오브젝트에 대해 메서드 호출
+        foreach (OneClearLand oneClearLand in oneClearLands)
+        {
+            oneClearLand.ChangeSprite();
+        }
     }
 
     private void SpawnMonsters()
@@ -161,7 +202,7 @@ public class MonsterSpawn1 : MonoBehaviour
                     count++; // 몬스터 생성 수 증가
                 }
             }
-            yield return new WaitForSeconds(Random.Range(3f, 5f));
+            yield return new WaitForSeconds(Random.Range(5f, 7f));
         }
     }
 

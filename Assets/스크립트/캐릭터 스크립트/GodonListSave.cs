@@ -7,7 +7,7 @@ public class GodonListSave : MonoBehaviour
 {
     [SerializeField] private GameObject godonPrefab;
 
-    private string savePath = "path/to/save/file.json";
+    private string savePath = "path/to/save/file_godon.json";
 
     private List<SerializableVector3> godonPositions = new List<SerializableVector3>();
 

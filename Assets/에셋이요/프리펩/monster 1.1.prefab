@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 7349789715966053962}
   - component: {fileID: 3908183338314079787}
   - component: {fileID: 3872586116879234029}
-  - component: {fileID: 6997944326063052167}
   - component: {fileID: 8398291189912228208}
   - component: {fileID: 5792984728073835096}
-  - component: {fileID: 3149188586363289726}
+  - component: {fileID: 5550640752391441724}
   m_Layer: 3
   m_Name: monster 1.1
   m_TagString: Enemy
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 2096421113
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -672795830, guid: 857c2369dff02b94aa56c2a2960c4147, type: 3}
+  m_Sprite: {fileID: -1598449874, guid: aa84952d15393c64db00aa0414e925d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -124,21 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 1.5
---- !u!114 &6997944326063052167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5002044948312838753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9245432bbda6b72409c98b1cb45aa7f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1
-  attackCooldown: 2
-  damageAmount: 10
 --- !u!114 &8398291189912228208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193672169d9984c478c616db0b4cda99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMoveSpeed: 1
-  maxMoveSpeed: 1.2
+  minMoveSpeed: 1.2
+  maxMoveSpeed: 1.4
   targetTag: Castle
---- !u!70 &3149188586363289726
+--- !u!70 &5550640752391441724
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,6 +187,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00083889964, y: -0.14429095}
-  m_Size: {x: 0.13309681, y: 0.21195307}
+  m_Offset: {x: -0.0010490775, y: -0.12903443}
+  m_Size: {x: 0.13675384, y: 0.21858044}
   m_Direction: 0

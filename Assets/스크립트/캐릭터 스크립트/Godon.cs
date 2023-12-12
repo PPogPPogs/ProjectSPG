@@ -66,10 +66,12 @@ public class Godon : MonoBehaviour
         if (monster != null)
         {
             float distanceToMonster = Vector3.Distance(transform.position, monster.position);
-
+            
             if (distanceToMonster <= detectionRange)
             {
+                
                 Attack();
+              
             }
         }
         if (isMoving)

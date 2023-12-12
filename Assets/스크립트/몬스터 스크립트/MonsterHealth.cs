@@ -34,13 +34,20 @@ public class MonsterHealth : MonoBehaviour
     private void Die()
     {
         Monstersummon monstersummon = FindObjectOfType<Monstersummon>();
+        MonsterAttack monsterAttack = FindObjectOfType<MonsterAttack>();
         if (monstersummon != null)
         {
             monstersummon.Onemonsterkilled();
         }
         monsterMovement.ResumeMovement();
+        animator.SetTrigger("Die");
+        monsterAttack.Die();
 
-        // ·£´ýÇÑ È®·ü·Î ÄÚÀÎÀ» ¶³¾î¶ß¸³´Ï´Ù.
+       
+    }
+
+    public void Destroy()
+    {
         if (Random.value <= coinDropProbability)
         {
             GameObject coin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
