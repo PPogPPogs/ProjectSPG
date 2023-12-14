@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 825238b0ba3bd884fabdaae8c5bb5f1b
+guid: ab820adb64688d74e985142906002039
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: castle_apple_0
+      name: cannonball 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 308
-        width: 500
-        height: 154
+        y: 42
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3596fb62523f53345aeb795ff7b1ed04
-      internalID: -777630596
+      spriteID: e9e21e0e10713b944877105eb3fcbc4e
+      internalID: 1252994920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: castle_apple_1
+      name: cannonball 1_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 308
-        width: 500
-        height: 154
+        x: 42
+        y: 42
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,146 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aabb8e67dfcedae4ea2ce027b3b9232d
-      internalID: -1994733470
+      spriteID: a40ed3acc8cd8fb499f3d249332e74a6
+      internalID: -1125520624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: castle_apple_2
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 308
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba30a10936e26b741a3afd0b93117df9
-      internalID: -532698912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 308
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 135b2b6cfc1a7d045960bfcf033856a2
-      internalID: 446509859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 154
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68a05250eec943e4fb2854ed1dc8b903
-      internalID: -2071567166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 154
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3da5e95b691c2042ac3a04818d9a4ff
-      internalID: 1613564233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_6
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 154
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b89877ef2da44344810a48bf5cdb87c
-      internalID: 1769702014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_7
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 154
-        width: 500
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 424b1b1fd1f977a4581942cfe45ec0f2
-      internalID: 8411454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: castle_apple_8
+      name: cannonball 1_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 154
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6db42925b79c60549a4c16e3c252571d
-      internalID: 689511556
+      spriteID: 9f10dd3b6ed192e47b24a058bcf18c63
+      internalID: -777467045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: castle_apple_9
+      name: cannonball 1_3
       rect:
         serializedVersion: 2
-        x: 500
+        x: 42
         y: 0
-        width: 500
-        height: 154
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5495c19a3625018429a47333841ce39d
-      internalID: 1657815296
+      spriteID: a3e769fb6aee98146ae47eaf48dd3d9a
+      internalID: -1325914370
       vertices: []
       indices: 
       edges: []
@@ -330,16 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      castle_apple_0: -777630596
-      castle_apple_1: -1994733470
-      castle_apple_2: -532698912
-      castle_apple_3: 446509859
-      castle_apple_4: -2071567166
-      castle_apple_5: 1613564233
-      castle_apple_6: 1769702014
-      castle_apple_7: 8411454
-      castle_apple_8: 689511556
-      castle_apple_9: 1657815296
+      cannonball 1_0: 1252994920
+      cannonball 1_1: -1125520624
+      cannonball 1_2: -777467045
+      cannonball 1_3: -1325914370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
