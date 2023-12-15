@@ -12,23 +12,34 @@ public class LeftMonster : MonoBehaviour
     private Transform target; // 이동할 목표 위치
     private bool isMoving = true; // 이동 가능 상태를 나타내는 변수
     private Animator animator;
-    
+    public int maxHealth = 100;
+    public int currentHealth;
+    public int goldReward = 1;
 
-   
- 
+    private static List<LeftMonster> LeftmonsterList = new List<LeftMonster>();
+
+
 
     private void Start()
     {
+        LeftmonsterList.Add(this);
         // 태그로 타겟을 찾아 할당합니다.
         target = GameObject.FindGameObjectWithTag(targetTag)?.transform;
-
+        currentHealth = maxHealth;
         animator = GetComponent<Animator>();
 
 
     }
 
+    public static List<LeftMonster> GetLeftmonsterList()
+    {
+        return LeftmonsterList;
+    }
+
+
     private void Update()
     {
+        SaveLeftmonsterPosition(transform.position);
         if (target != null && isMoving)
         {
             // 몬스터가 목표 위치로 이동합니다.
@@ -57,12 +68,20 @@ public class LeftMonster : MonoBehaviour
         isMoving = true; // 이동 재개
     }
 
-   public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        animator.SetTrigger("Die");
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            animator.SetTrigger("TakeDamage");
+            Debug.Log("체력이 감소했습니다");
+        }
     }
 
-   
     public void AttackCastle()
     {
       
@@ -74,6 +93,40 @@ public class LeftMonster : MonoBehaviour
 
     public void Die()
     {
+        {
+            CurrencyManager currencyManager = FindObjectOfType<CurrencyManager>();
+            if (currencyManager != null)
+            {
+                currencyManager.AddCurrency(Currency.CurrencyType.Gold, goldReward);
+
+            }
+        }
+        Destroy(gameObject);
+        //animator.SetTrigger("Die");
+    }
+
+    public void Destroy()
+    {
         Destroy(gameObject);
     }
+
+
+    private void SaveLeftmonsterPosition(Vector3 position)
+    {
+        string leftmonsterPosition = "LeftMonsterPosition_" + GetInstanceID(); // Unique key for each monster
+        PlayerPrefs.SetFloat(leftmonsterPosition + "_X", position.x);
+        PlayerPrefs.SetFloat(leftmonsterPosition + "_Y", position.y);
+        PlayerPrefs.SetFloat(leftmonsterPosition + "_Z", position.z);
+        PlayerPrefs.Save();
+    }
+
+    public Vector3 LoadLeftmonsterPosition()
+    {
+        string leftmonsterPosition = "LeftMonsterPosition_" + GetInstanceID();
+        float x = PlayerPrefs.GetFloat(leftmonsterPosition + "_X", 0f);
+        float y = PlayerPrefs.GetFloat(leftmonsterPosition + "_Y", -0.63f);
+        float z = PlayerPrefs.GetFloat(leftmonsterPosition + "_Z", 0f);
+        return new Vector3(x, y, z);
+    }
+
 }

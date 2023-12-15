@@ -33,7 +33,14 @@ public class CannonBallScript : MonoBehaviour
 
     void HitTarget()
     {
-        // 몬스터에게 피해를 입히는 로직을 여기에 추가하세요.
+        // 몬스터에게 피해를 입히는 로직을 여기에 추가
+        LeftMonster leftMonster = target.GetComponent<LeftMonster>();
+
+        if (leftMonster != null)
+        {
+            leftMonster.TakeDamage(100);
+        }
+
         Destroy(gameObject);
     }
 }

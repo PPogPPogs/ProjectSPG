@@ -103,7 +103,7 @@ public class Cannon1 : MonoBehaviour
             if (distance < 10 && distance >= 9.4)
             {
 
-               // animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.5f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -127,7 +127,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 9.4 && distance >= 8.9)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.51f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -150,7 +150,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 8.9 && distance >= 8.3)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.525f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -173,7 +173,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 8.3 && distance >= 7.7)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.54f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -196,7 +196,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 7.7 && distance >= 7.1)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.555f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -219,7 +219,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 7.1 && distance >= 6.5)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.575f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -242,7 +242,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 6.5 && distance >= 5.9)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.595f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -265,7 +265,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 5.9 && distance >= 5.5)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.61f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
@@ -288,7 +288,7 @@ public class Cannon1 : MonoBehaviour
             else if (distance < 5.5 && distance >= 5)
             {
 
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
                 float arrowSpeed = 0.63f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
