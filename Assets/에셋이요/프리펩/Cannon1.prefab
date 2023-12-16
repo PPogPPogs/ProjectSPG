@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8951332205522701229}
   - component: {fileID: 8810828641203087015}
   - component: {fileID: 1666146402780388030}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,8 @@ GameObject:
   - component: {fileID: 2417798898776457479}
   - component: {fileID: 4295600312876883799}
   - component: {fileID: 8551993381665231232}
-  m_Layer: 0
+  - component: {fileID: 7672449233144106517}
+  m_Layer: 13
   m_Name: Cannon1
   m_TagString: DefenseTower
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.01188983, y: -0.07642858, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5814889396341985631}
@@ -149,11 +150,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1121562027
-  m_SortingLayer: 4
+  m_SortingLayerID: -1871478209
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d8d823089a2ecf24e8e376b887912a04, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -199,7 +200,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 1.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -254,9 +255,30 @@ MonoBehaviour:
   spawnPosition: {x: -27, y: -0.6}
   Cannon1Prefab: {fileID: 1454543025863713566}
   Cannon2Prefab: {fileID: 0}
-  arrowPrefab: {fileID: 7100377136803816120, guid: 1dafed8cb7df9ad4eb7a8f6536852f31, type: 3}
+  arrowPrefab: {fileID: 7398040106657482938, guid: 61cc39590decc6d4e8fe4003f9afbbee, type: 3}
   gravity: 2.6
   detectionRange: 10
+--- !u!95 &7672449233144106517
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454543025863713566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27127524fe4f9604e9ca39c9a3a1601d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2286525034099000393
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +290,7 @@ GameObject:
   - component: {fileID: 1809817153312426512}
   - component: {fileID: 8508903205227991269}
   - component: {fileID: 8664423358978452030}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741399155861961869}
   - component: {fileID: 5284823815300658506}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1790967448594506280}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +491,7 @@ GameObject:
   - component: {fileID: 1973364733309650195}
   - component: {fileID: 4637384689477767475}
   - component: {fileID: 1342550938717299117}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3636103901144859985}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

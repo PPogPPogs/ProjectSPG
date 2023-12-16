@@ -407,7 +407,7 @@ MonoBehaviour:
   constructionTimePercent: 1
   constructionBar: {fileID: 4471624162916826853}
   Slider: {fileID: 2358461602076566997}
-  spawnPosition: {x: -27, y: -0.6}
+  spawnPosition: {x: -22.5, y: -0.6}
   Cannon1Prefab: {fileID: 1454543025863713566, guid: 09d526e41ebb6f448be1e6d2f6e8475c, type: 3}
   Cannon0Prefab: {fileID: 6012491285315677411}
 --- !u!61 &21439641321580993

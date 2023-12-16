@@ -204,7 +204,7 @@ public class Justinmove : MonoBehaviour
     
     private Vector3 JustinPosition()
     {
-        float x = PlayerPrefs.GetFloat(JustinX, -27.0f); // 0f는 기본 위치
+        float x = PlayerPrefs.GetFloat(JustinX, -22.5f); // 0f는 기본 위치
         float y = PlayerPrefs.GetFloat(JustinY, -0.63f);
         float z = PlayerPrefs.GetFloat(JustinZ, 0f);
         return new Vector3(x, y, z);

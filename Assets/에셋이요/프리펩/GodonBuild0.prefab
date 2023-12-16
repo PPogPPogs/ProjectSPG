@@ -481,7 +481,7 @@ MonoBehaviour:
   constructionTimePercent: 1
   constructionBar: {fileID: 8029675485130750585}
   Slider: {fileID: 3609164379213405558}
-  spawnPosition: {x: -27, y: -0.6}
+  spawnPosition: {x: -22.5, y: -0.6}
   GodonBuild1Prefab: {fileID: 146545856072207235, guid: ee3dee266dfb9504ea2bafcfcfd3d28b, type: 3}
   GodonBuild0Prefab: {fileID: 8484244095829993904}
 --- !u!61 &6062414243946176145

@@ -104,7 +104,7 @@ public class Cannon1 : MonoBehaviour
             {
 
                 animator.SetTrigger("Attack");
-                float arrowSpeed = 0.5f;
+                float arrowSpeed = 1f;
                 float arrowSpeedMultiplier = 1.0f; // 이 값을 조절하여 화살 속도의 비례 정도를 변경할 수 있습니다.
                 float adjustedArrowSpeed = arrowSpeed * (1.0f + distance * arrowSpeedMultiplier);
                 float time = distance / adjustedArrowSpeed;
@@ -112,12 +112,17 @@ public class Cannon1 : MonoBehaviour
 
                 Vector3 initialVelocity = direction.normalized * adjustedArrowSpeed;
                 initialVelocity.y = verticalSpeed * 3;
+                Vector3 launchPosition = transform.position + new Vector3(1.3f, -0.8f, 0f);
 
+                // 화살을 생성하고 초기 속도를 설정합니다.
+
+                GameObject arrow = Instantiate(arrowPrefab, launchPosition, Quaternion.identity);
+                
                 // 화살 발사
-                GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+
                 Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>();
                 arrowRb.velocity = initialVelocity;
-
+               
                 // 여기에 실제 공격 로직을 구현
                 Debug.Log("몬스터가 플레이어를 공격합니다!");
                 nextAttackTime = Time.time + currentAttackCooldown;

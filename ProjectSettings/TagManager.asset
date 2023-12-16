@@ -13,6 +13,7 @@ TagManager:
   - JustinHouse
   - Godon
   - LeftMonster
+  - CannonBall
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - "\uC624\uC5FC\uAD6C\uC5ED"
   - "\uB3C4\uD1A0\uB9AC"
   - LeftMonster
-  - 
+  - Cannon
   - 
   - 
   - 
