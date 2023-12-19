@@ -3,11 +3,9 @@ using UnityEngine.UI;
 
 public class BuildingButtonactive : MonoBehaviour
 {
-    public GameObject objectToDisable1;
-    public GameObject objectToDisable2;
-    public GameObject objectToDisable3;
-    public GameObject objectToDisable4;
-
+    public GameObject objectable;
+    public GameObject objectToDisable;
+   
     public Button deactivateButton; // UI 버튼을 연결할 변수
 
     private void Start()
@@ -19,10 +17,8 @@ public class BuildingButtonactive : MonoBehaviour
     // 오브젝트 비활성화 함수
     private void DisableObject()
     {
-        objectToDisable1.SetActive(true);
-        objectToDisable2.SetActive(false);
-        objectToDisable3.SetActive(false);
-        objectToDisable4.SetActive(false);
-
+        objectable.SetActive(true);
+        objectToDisable.SetActive(false);
+      
     }
 }

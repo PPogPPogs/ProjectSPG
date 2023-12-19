@@ -62,42 +62,87 @@ public class MonsterSpawn1 : MonoBehaviour
         {
             int currentHour = calendarManager.GetHour();
             int currentDay = calendarManager.GetDay();
-            if (currentDay == 23 && currentHour == 7 && !monsterSSpawned )
+            if (currentDay == 23 && currentHour == 19 && !monsterSSpawned )
             {
-                StartCoroutine(SpawnMonstersWithDelay(3));
+                StartCoroutine(SpawnMonstersWithDelay(15));
 
                 monsterSSpawned = true;
                 
             }
 
-            else if (currentDay == 24 && currentHour == 7 && !monsterSSpawned)
+            else if (currentDay == 24 && currentHour == 19 && !monsterSSpawned)
             {
-                FirstMonsterDead();
-            }
-
-            else if(currentDay == 24 && currentHour == 19 && !monsterSSpawned)
-            {
-                StartCoroutine(SpawnMonstersWithDelay(3));
+                StartCoroutine(SpawnMonstersWithDelay(30));
                 monsterSSpawned = true;
             }
 
             else if (currentDay == 25 && currentHour == 7 && !monsterSSpawned)
             {
-                SecondMonsterDead();
+                FirstMonsterDead();
+                int valueToSave = 1;
+
+                // "BuildCannonAndWall" 키에 값을 저장합니다.
+                PlayerPrefs.SetInt("BuildCannonAndWall", valueToSave);
+
+                // 변경사항을 저장합니다.
+                PlayerPrefs.Save();
+                
+
             }
 
-            else if (currentDay == 25 && currentHour == 19 && !monsterSSpawned)
+            if (currentDay == 25 && currentHour == 19 && !monsterSSpawned)
             {
-                StartCoroutine(SpawnMonstersWithDelay(3));
+                StartCoroutine(SpawnMonstersWithDelay(15));
+
+                monsterSSpawned = true;
+
+            }
+
+            else if (currentDay == 26 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(30));
                 monsterSSpawned = true;
             }
 
-            else if (currentDay == 26 && currentHour == 7 && !monsterSSpawned)
+            else if (currentDay == 27 && currentHour == 7 && !monsterSSpawned)
             {
-                ThirdMonsterDead();   
+                SecondMonsterDead();
+                int valueToSave = 2;
+
+                // "BuildCannonAndWall" 키에 값을 저장합니다.
+                PlayerPrefs.SetInt("BuildCannonAndWall", valueToSave);
+
+                // 변경사항을 저장합니다.
+                PlayerPrefs.Save();
             }
-            
-            if (currentHour == 19)
+
+            if (currentDay == 27 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(15));
+
+                monsterSSpawned = true;
+
+            }
+
+            else if (currentDay == 28 && currentHour == 19 && !monsterSSpawned)
+            {
+                StartCoroutine(SpawnMonstersWithDelay(30));
+                monsterSSpawned = true;
+            }
+
+            else if (currentDay == 29 && currentHour == 7 && !monsterSSpawned)
+            {
+                ThirdMonsterDead();
+                int valueToSave = 3;
+
+                // "BuildCannonAndWall" 키에 값을 저장합니다.
+                PlayerPrefs.SetInt("BuildCannonAndWall", valueToSave);
+
+                // 변경사항을 저장합니다.
+                PlayerPrefs.Save();
+            }
+
+            if (currentHour == 20)
             {
                 monsterSSpawned = false;
             }
