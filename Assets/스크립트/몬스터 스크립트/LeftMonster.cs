@@ -36,6 +36,13 @@ public class LeftMonster : MonoBehaviour
         return LeftmonsterList;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Castle"))
+        {
+            Die();
+        }
+    }
 
     private void Update()
     {
@@ -101,8 +108,8 @@ public class LeftMonster : MonoBehaviour
 
             }
         }
-        Destroy(gameObject);
-        //animator.SetTrigger("Die");
+        isMoving = false;
+        animator.SetTrigger("Die");
     }
 
     public void Destroy()
