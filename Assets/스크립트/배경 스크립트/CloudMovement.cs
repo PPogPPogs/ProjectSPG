@@ -5,27 +5,29 @@ using UnityEngine;
 public class CloudMovement : MonoBehaviour
 {
 	public float speed = 1.0f; // 이동 속도
+	public Camera mainCamera; // 카메라 참조
 	public SpriteRenderer cloud1; // 첫 번째 구름 스프라이트 렌더러
 	public SpriteRenderer cloud2; // 두 번째 구름 스프라이트 렌더러
 	public float repeatDistance = 20.0f; // 구름 반복 간격
 
 	private void Update()
 	{
-		// 오른쪽으로 이동
+		// 카메라의 상대 좌표계로 이동
 		float moveDelta = speed * Time.deltaTime;
-		cloud1.transform.Translate(Vector3.right * moveDelta);
-		cloud2.transform.Translate(Vector3.right * moveDelta);
+		cloud1.transform.Translate(mainCamera.transform.right * moveDelta);
+		cloud2.transform.Translate(mainCamera.transform.right * moveDelta);
 
-		// 첫 번째 구름이 반복 간격만큼 오른쪽으로 이동하면 위치를 두 번째 구름 뒤로 옮김
-		if (cloud1.transform.position.x >= repeatDistance)
+		// 카메라의 상대 좌표계 위치를 기준으로 반복
+		if (cloud1.transform.position.x - mainCamera.transform.position.x >= repeatDistance)
 		{
-			cloud1.transform.position = new Vector3(cloud2.transform.position.x - repeatDistance, cloud1.transform.position.y, cloud1.transform.position.z);
+			Vector3 newPosition = mainCamera.transform.TransformPoint(new Vector3(-repeatDistance, 0, 0));
+			cloud1.transform.position = new Vector3(newPosition.x, cloud1.transform.position.y, cloud1.transform.position.z);
 		}
 
-		// 두 번째 구름이 반복 간격만큼 오른쪽으로 이동하면 위치를 첫 번째 구름 뒤로 옮김
-		if (cloud2.transform.position.x >= repeatDistance)
+		if (cloud2.transform.position.x - mainCamera.transform.position.x >= repeatDistance)
 		{
-			cloud2.transform.position = new Vector3(cloud1.transform.position.x - repeatDistance, cloud2.transform.position.y, cloud2.transform.position.z);
+			Vector3 newPosition = mainCamera.transform.TransformPoint(new Vector3(-repeatDistance, 0, 0));
+			cloud2.transform.position = new Vector3(newPosition.x, cloud2.transform.position.y, cloud2.transform.position.z);
 		}
 	}
 }

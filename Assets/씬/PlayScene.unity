@@ -7590,8 +7590,8 @@ Transform:
   m_GameObject: {fileID: 1139683849}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 8.4, y: 8.4, z: 1}
+  m_LocalPosition: {x: 0, y: 1.8, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 684684846}
@@ -7637,7 +7637,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f3f2a2de22fd65242bd79d1902ed4af9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10874fd893becc841a9c5d8d907b7361, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7675,9 +7675,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunLight: {fileID: 894043883}
   dayColor: {r: 1, g: 1, b: 1, a: 1}
-  nightColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 1}
+  nightColor: {r: 0.078431375, g: 0.078431375, b: 0.16078432, a: 1}
   sunsetColor: {r: 0.8980392, g: 0.4, b: 0.3019608, a: 1}
   transitionDuration: 15
+  dayIntensity: 1
+  nightIntensity: 0.1
 --- !u!1 &1142543473
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,6 +8092,55 @@ MonoBehaviour:
   background: {fileID: 1171016462}
   scrollSpeed: 1
   calendarManager: {fileID: 1188329764}
+--- !u!1 &1171017693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171017695}
+  - component: {fileID: 1171017694}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1171017694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171017693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 829d2f216bdcf8d469ce623516d6b47c, type: 2}
+--- !u!4 &1171017695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171017693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22330558, y: 0.08593707, z: -3.425743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173515794
 GameObject:
   m_ObjectHideFlags: 0
@@ -8240,7 +8291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba8b62b07401b4479020b0aca6a10ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.025
+  speed: 0.05
+  mainCamera: {fileID: 684684845}
   cloud1: {fileID: 1854801154}
   cloud2: {fileID: 1204899571}
   repeatDistance: 25
@@ -12631,7 +12683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba8b62b07401b4479020b0aca6a10ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.025
+  speed: 0.05
+  mainCamera: {fileID: 684684845}
   cloud1: {fileID: 1854801154}
   cloud2: {fileID: 1204899571}
   repeatDistance: 25
@@ -17110,6 +17163,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1381340114}
+  - {fileID: 1171017695}
   - {fileID: 684684846}
   - {fileID: 660738187}
   - {fileID: 1151227980033503617}
