@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.01188983, y: -0.07642858, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8083473781569004645}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 2096421113
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 839020923f22f024286b0877d0c60e40, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   constructionBar: {fileID: 3843066288306177521}
   Slider: {fileID: 899828901261262099}
   spawnPosition: {x: -22.5, y: -0.6}
-  GodonBuild1Prefab: {fileID: 0}
-  GodonBuild2Prefab: {fileID: 0}
+  GodonBuild1Prefab: {fileID: 146545856072207235}
+  GodonBuild2Prefab: {fileID: 8484244095829993904, guid: 146aa0680fc7cc24386358524320dc1d, type: 3}
   Image: {fileID: 6255917831207823923}
 --- !u!61 &4513827318104125925
 BoxCollider2D:
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 2.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -519,8 +519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.6799927, y: -1.3300171}
-  m_SizeDelta: {x: 105.4641, y: 16.0026}
+  m_AnchoredPosition: {x: 1.8619995, y: -1.0050049}
+  m_SizeDelta: {x: 54.2008, y: 4.5591}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &3843066288306177521
 MonoBehaviour:
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd56f64d086a5d4f9ebc3990c903660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPosition: {x: 2.5, y: -0.6}
+  spawnPosition: {x: -17.5, y: -0.6}
   objectToDisable: {fileID: 6255917831207823923}
   ConstructionText: {fileID: 3019311166252034566}
 --- !u!1 &4944733253168599820
@@ -1608,7 +1608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2440314828396301876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1618,7 +1618,7 @@ RectTransform:
   m_GameObject: {fileID: 6255917831207823923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000003, y: 0.010000001, z: 1}
+  m_LocalScale: {x: 0.002, y: 0.002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3016427345545778524}
@@ -1631,7 +1631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.5899658, y: 0.020019531}
+  m_AnchoredPosition: {x: 2.0009766, y: -0.28302002}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &7764977040424697603
@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Godonprefab: {fileID: 157514274541773277, guid: cf9df92c37087564ca65edf199c54e4a, type: 3}
-  createPositionX: 2.5
+  createPositionX: -17.5
   createPositionY: -0.63
   createPositionZ: 0
 --- !u!1 &9019563073421519487

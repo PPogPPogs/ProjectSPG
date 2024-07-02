@@ -16,7 +16,7 @@ public class Justinmove : MonoBehaviour
     private string JustinZ = "justinZ";
     private bool isConstruction = false;
     private bool isConstructioning = false;
-    
+    private bool isTargetArrive = false;
 
 
     private void Start()
@@ -155,6 +155,8 @@ public class Justinmove : MonoBehaviour
     {
         PlayerPrefs.SetInt("IsConstructioning", 1);
         PlayerPrefs.Save();
+        PlayerPrefs.SetInt("IsTargetArrive", 1);
+        PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("JustinSavedTargetX");
         PlayerPrefs.DeleteKey("JustinSavedTargetY");
         PlayerPrefs.Save();
@@ -163,42 +165,7 @@ public class Justinmove : MonoBehaviour
         animator.SetTrigger("Building");
         isMoving = false; // 이동 중이 아니라고 표시
         isHomeComing = false; // 이동 중이 아니라고 표시
-        Cannon0 cannon0 = FindObjectOfType<Cannon0>();
-      
-        JustinBuilding0 justinBuilding0 = FindObjectOfType<JustinBuilding0>();
-        JustinBuilding1 justinBuilding1 = FindObjectOfType<JustinBuilding1>();
-        GodonBuild0 godonBuild0 = FindObjectOfType<GodonBuild0>();
-        GodonBuild1 godonBuild1 = FindObjectOfType<GodonBuild1>();
-        if (cannon0 != null)
-        { 
-            cannon0.StartConstruction();
-        }
-
         
-        // Cannon
-
-        else if (godonBuild0 != null)
-        {
-            godonBuild0.StartConstruction();
-        }
-
-        else if (godonBuild1 != null)
-        {
-            godonBuild1.StartConstruction();
-        }
-        // GodonBuild
-
-        else if(justinBuilding0 != null)
-        {
-            justinBuilding0.StartConstruction();
-        }
-
-        else if (justinBuilding1 != null)
-        {
-            justinBuilding1.StartConstruction();
-        }
-        // JustinBuild
-
      
     }
     

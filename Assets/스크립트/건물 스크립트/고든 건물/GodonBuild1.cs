@@ -12,7 +12,9 @@ public class GodonBuild1 : MonoBehaviour
     public GameObject Slider;
     private bool isConstruction = false;
     private bool isConstructioning = false;
+    private bool isTargetArrive = false;
     private bool isInRange = false;
+    private bool JustinRange = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
     public GameObject GodonBuild1Prefab;
     public GameObject GodonBuild2Prefab;
@@ -38,6 +40,35 @@ public class GodonBuild1 : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Justin"))
+        {
+
+
+            if (JustinRange)
+            {
+                return;
+            }
+            else
+            {
+
+                if (isTargetArrive)
+                {
+                    isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
+                    if (isConstructioning)
+                    {
+                        StartConstruction();
+                        JustinRange = true;
+
+                    }
+                }
+
+            }
+        }
+    }
+
     private void Upgrade()
     {
         Image.SetActive(true);
@@ -47,20 +78,14 @@ public class GodonBuild1 : MonoBehaviour
     {
         SavePosition();
         isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
-        isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
+       
         // 건설 진행 상태를 나타낼 UI 또는 게임 오브젝트를 가져옵니다.
         // 예시: ConstructionBar는 건설 진행 상태를 표시하는 게임 오브젝트
         if (!isConstructioning)
         {
             Slider.SetActive(false); // 초기에는 숨겨둡니다.
         }
-        else
-        {
-            StartConstruction();
-            float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
-            constructionProgress = savedConstructionProgress;
-
-        }
+       
         realcunstructionTime = constructionTime * constructionTimePercent;
 
 
@@ -69,6 +94,8 @@ public class GodonBuild1 : MonoBehaviour
 
     private void Update()
     {
+        isTargetArrive = PlayerPrefs.GetInt("IsTargetArrive", 0) == 1;
+
         if (isUnderConstruction)
         {
             // 건설 중인 경우 타이머를 업데이트합니다.
@@ -99,6 +126,9 @@ public class GodonBuild1 : MonoBehaviour
 
         isUnderConstruction = true;
         Slider.SetActive(true);
+
+        float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
+        constructionProgress = savedConstructionProgress;
         // 다른 초기화 작업 수행
     }
 
@@ -126,6 +156,8 @@ public class GodonBuild1 : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.DeleteKey("ConstructionProgress"); // "ConstructionProgress" 키를 삭제
         PlayerPrefs.Save(); // 변경 사항을 저장
+        PlayerPrefs.SetInt("IsTargetArrive", 0);
+        PlayerPrefs.Save();
 
     }
 

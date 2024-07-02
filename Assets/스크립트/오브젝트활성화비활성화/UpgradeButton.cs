@@ -3,27 +3,28 @@ using UnityEngine;
 public class UpgradeButton : MonoBehaviour
 {
     
-    public Vector2 spawnPosition = new Vector2(6f, -0.6f); // 2D ÁÂÇ¥ ¼³Á¤(ÇÊ¿ä)
+    public Vector2 spawnPosition = new Vector2(6f, -0.6f); // 2D ì¢Œí‘œ ì„¤ì •(í•„ìš”)
     public GameObject objectToDisable;
     public GameObject ConstructionText;
     private bool isConstruction = false;
+  
 
     public void OnButtonClick()
     {
-        bool isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) != 0;
+         isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
 
         if (!isConstruction)
         {
-                   
-            // Justinmove ½ºÅ©¸³Æ®¸¦ Ã£À½
+            GameObject.Find("Justin").transform.Find("justin").gameObject.SetActive(true);
+            // Justinmove ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì°¾ìŒ
             Justinmove justinmove = FindObjectOfType<Justinmove>();
 
             if (justinmove != null)
             {
-                // SetTargetPosition ¸Ş¼­µå¸¦ È£ÃâÇÏ¿© ÁÂÇ¥¸¦ Àü´Ş
+                // SetTargetPosition ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ì¢Œí‘œë¥¼ ì „ë‹¬
                 justinmove.SetTargetPosition(spawnPosition);
                 objectToDisable.SetActive(false);
-
+                
 
             }
         }

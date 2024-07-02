@@ -8,29 +8,60 @@ public class JustinBuilding0 : MonoBehaviour
     private float realcunstructionTime = 1.0f;
     private bool isUnderConstruction = false;
     private bool isInRange = false;
-
+    private bool isTargetArrive = false;
     private float constructionProgress = 0.0f;
-    public Slider constructionBar;
-    public GameObject Slider;
+    
+    public Image TimerImage;
     public GameObject UpgradeButton;
     private bool isConstruction = false;
     private bool isConstructioning = false;
     private bool JustinOneGo = false;
+    private bool JustinRange = false;
     public Vector2 spawnPosition = new Vector2(-16.0f, -0.6f);// 저스틴 집 좌표
     public GameObject JustinBuild0oj;
     public GameObject JustinBuild1oj;
-        
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.CompareTag("Player"))
         {
             isInRange = true;
-            
+
 
         }
     }
+   
+    private void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Justin"))
+        {
+
+
+            if (JustinRange)
+            {
+                return;
+            }
+            else
+            {
+
+                if (isTargetArrive)
+                {
+                    isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
+                    if (isConstructioning)
+                    {
+                        StartConstruction();
+                        JustinRange = true;
+
+                    }
+                }
+
+            }
+        }
+    }
+
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -48,26 +79,23 @@ public class JustinBuilding0 : MonoBehaviour
 
     private void Start()
     {
+        
         isConstruction = PlayerPrefs.GetInt("IsConstruction", 0) == 1;
-        isConstructioning = PlayerPrefs.GetInt("IsConstructioning", 0) == 1;
+       
         // 건설 진행 상태를 나타낼 UI 또는 게임 오브젝트를 가져옵니다.
         // 예시: ConstructionBar는 건설 진행 상태를 표시하는 게임 오브젝트
         if (!isConstructioning)
         {
-            Slider.SetActive(false); // 초기에는 숨겨둡니다.
+            TimerImage.gameObject.SetActive(false); // 초기에는 숨겨둡니다.
         }
-        else
-        {
-            StartConstruction();
-            float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
-            constructionProgress = savedConstructionProgress;
-
-        }
+        
         realcunstructionTime = constructionTime * constructionTimePercent;
     }
 
     private void Update()
     {
+        isTargetArrive = PlayerPrefs.GetInt("IsTargetArrive", 0) == 1;
+        
         if (isInRange && Input.GetKeyDown(KeyCode.Space))
         {
             Upgrade();
@@ -97,7 +125,9 @@ public class JustinBuilding0 : MonoBehaviour
     {
 
         isUnderConstruction = true;
-        Slider.SetActive(true);
+        TimerImage.gameObject.SetActive(true);
+        float savedConstructionProgress = PlayerPrefs.GetFloat("ConstructionProgress", 0.0f); // 0.0f는 기본값
+        constructionProgress = savedConstructionProgress;
         // 다른 초기화 작업 수행
     }
 
@@ -107,7 +137,7 @@ public class JustinBuilding0 : MonoBehaviour
         PlayerPrefs.SetInt("IsConstruction", 0);
         PlayerPrefs.Save();
         isUnderConstruction = false;
-        Slider.SetActive(false);
+        TimerImage.gameObject.SetActive(false);
         // 건물을 활성화하거나 다른 건설 완료 작업 수행
         gameObject.SetActive(true); // 예시: 건물을 활성화
         Vector3 spawnPosition3D = new Vector3(spawnPosition.x, spawnPosition.y, 0f);
@@ -128,6 +158,8 @@ public class JustinBuilding0 : MonoBehaviour
         PlayerPrefs.Save();
         PlayerPrefs.SetInt("JustinBuild1Active", 1);
         PlayerPrefs.Save();
+        PlayerPrefs.SetInt("IsTargetArrive", 0);
+        PlayerPrefs.Save();
         JustinBuild1oj.SetActive(true);
         JustinBuild0oj.SetActive(false);
 
@@ -139,7 +171,9 @@ public class JustinBuilding0 : MonoBehaviour
         // progress 값은 0.0 (시작)에서 1.0 (완료) 사이의 값입니다.
 
         // "constructionBar" 게임 오브젝트의 스케일을 조절하여 체우기 효과 생성
-        constructionBar.value = (float)constructionProgress / realcunstructionTime;
+        TimerImage.fillAmount = (float)constructionProgress / realcunstructionTime;
+
+        
         PlayerPrefs.SetFloat("ConstructionProgress", constructionProgress);
         PlayerPrefs.Save();
     }

@@ -9,62 +9,85 @@ public class MonsterListSave : MonoBehaviour
 
     private string savePath = "path/to/save/file_monster.json";
 
-    private List<SerializableVector3> monsterPositions = new List<SerializableVector3>();
+    // 수정: 위치와 체력을 함께 저장할 직렬화된 클래스
+    [System.Serializable]
+    private class SerializableMonsterData
+    {
+        public SerializableVector3 position;
+        public int health;
+
+        public SerializableMonsterData(Vector3 position, int health)
+        {
+            this.position = new SerializableVector3(position);
+            this.health = health;
+        }
+    }
+
+    private List<SerializableMonsterData> monsterDataList = new List<SerializableMonsterData>();
 
     private void Awake()
     {
-        LoadAllMonsterPositions();
+        LoadAllMonsterData();
     }
 
-    private void LoadAllMonsterPositions()
+    private void LoadAllMonsterData()
     {
-        List<SerializableVector3> savedPositions = GetSavedmonsterPositions();
+        List<SerializableMonsterData> savedMonsterDataList = GetSavedMonsterDataList();
 
-        foreach (SerializableVector3 position in savedPositions)
+        foreach (SerializableMonsterData data in savedMonsterDataList)
         {
-            InstantiateMonster(position.ToVector3());
-            Debug.Log("위치전달");
+            InstantiateMonster(data.position.ToVector3(), data.health);
+            Debug.Log("위치 및 체력 전달");
         }
     }
 
-    private List<SerializableVector3> GetSavedmonsterPositions()
+    private List<SerializableMonsterData> GetSavedMonsterDataList()
     {
-        List<SerializableVector3> savedPositions = new List<SerializableVector3>();
+        List<SerializableMonsterData> savedMonsterDataList = new List<SerializableMonsterData>();
 
         string json = File.ReadAllText(savePath);
-        savedPositions = JsonConvert.DeserializeObject<List<SerializableVector3>>(json);
+        savedMonsterDataList = JsonConvert.DeserializeObject<List<SerializableMonsterData>>(json);
 
-        return savedPositions;
+        return savedMonsterDataList;
     }
 
-    private void InstantiateMonster(Vector3 position)
+    private void InstantiateMonster(Vector3 position, int health)
     {
         GameObject monsterObject = Instantiate(Monster1Prefab, position, Quaternion.identity);
-        // Godon 스크립트에 대한 추가 작업이 필요할 수 있습니다.
+
+        // 수정: MonsterHealth 스크립트에 체력 정보 전달
+        MonsterHealth monsterHealth = monsterObject.GetComponent<MonsterHealth>();
+        if (monsterHealth != null)
+        {
+            monsterHealth.SetHealth(health);
+        }
     }
 
-    public void SaveGodonPositions()
+    public void SaveMonsterDataList()
     {
-        monsterPositions.Clear();
+        monsterDataList.Clear();
 
-        // 현재 Godon 위치 정보를 리스트에 저장
-        // godonList 대신 직렬화된 리스트를 사용합니다.
+        // 현재 Monster 위치와 체력 정보를 리스트에 저장
         foreach (GameObject monsterObject in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             MonsterAI monsterAI = monsterObject.GetComponent<MonsterAI>();
+            MonsterHealth monsterHealth = monsterObject.GetComponent<MonsterHealth>();
+
             Vector3 position = monsterAI.LoadGodonPosition();
-            monsterPositions.Add(new SerializableVector3(position));
-            Debug.Log("저장?");
+            int health = monsterHealth.GetCurrentHealth();
+
+            monsterDataList.Add(new SerializableMonsterData(position, health));
+            Debug.Log("위치 및 체력 저장");
         }
 
         // 리스트를 JSON으로 변환하여 파일에 저장
-        string json = JsonConvert.SerializeObject(monsterPositions);
+        string json = JsonConvert.SerializeObject(monsterDataList);
         File.WriteAllText(savePath, json);
         Debug.Log("저장");
     }
 
     private void OnApplicationQuit()
     {
-        SaveGodonPositions();
+        SaveMonsterDataList();
     }
 }

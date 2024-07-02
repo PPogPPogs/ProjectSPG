@@ -62,7 +62,7 @@ public class MonsterSpawn1 : MonoBehaviour
         {
             int currentHour = calendarManager.GetHour();
             int currentDay = calendarManager.GetDay();
-            if (currentDay == 23 && currentHour == 19 && !monsterSSpawned )
+            if (currentDay == 23 && currentHour == 7 && !monsterSSpawned )
             {
                 StartCoroutine(SpawnMonstersWithDelay(15));
 

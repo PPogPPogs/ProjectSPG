@@ -290,7 +290,14 @@ public class Cannon0 : MonoBehaviour
             
         }
         Destroy(Cannon0Prefab);
-        Instantiate(Cannon1Prefab, transform.position, Quaternion.identity);
+        float xFloat = -7.5f;
+        float yFloat = 1.0f;
+        float zFloat = 0.0f;
+
+        Vector3 newPosition = new Vector3(xFloat, yFloat, zFloat);
+        Instantiate(Cannon1Prefab, newPosition, Quaternion.identity);
+
+
     }
 
 }

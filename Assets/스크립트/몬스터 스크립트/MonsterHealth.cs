@@ -7,7 +7,8 @@ public class MonsterHealth : MonoBehaviour
     public GameObject coinPrefab;
     private Animator animator;
     public float coinForce = 10f;
-    public float coinDropProbability = 0.5f; // 코인을 떨어뜨릴 확률을 설정합니다.
+    public float coinDropProbability = 0.5f;
+
     private MonsterMovement monsterMovement;
 
     private void Start()
@@ -42,8 +43,6 @@ public class MonsterHealth : MonoBehaviour
         monsterMovement.ResumeMovement();
         animator.SetTrigger("Die");
         monsterAttack.Die();
-
-       
     }
 
     public void Destroy()
@@ -62,7 +61,17 @@ public class MonsterHealth : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    // 추가: 외부에서 체력을 설정하는 메서드
+    public void SetHealth(int health)
+    {
+        currentHealth = health;
+        // 필요한 경우 추가적인 처리를 수행할 수 있습니다.
+    }
+
+    // 추가: 현재 체력을 가져오는 메서드
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
 }
-
-	
-
